@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listings — Smoky Mountain Living with Debra</title>
+  <meta name="description" content="Browse homes for sale in Maryville, Sevierville, Gatlinburg, and across East Tennessee with Debra Eldin, your Smoky Mountain real estate expert." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .filter-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--fog-light);
+      padding: 1rem 0;
+      position: sticky;
+      top: 68px;
+      z-index: 50;
+    }
+    .filter-bar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .filter-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mist);
+      white-space: nowrap;
+    }
+    .filter-select {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--bark);
+      background: var(--cream);
+      border: 1px solid var(--fog);
+      border-radius: 2px;
+      padding: 8px 14px;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.25s;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238FA89A' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      padding-right: 30px;
+    }
+    .filter-select:focus { border-color: var(--pine); }
+    .listing-count {
+      margin-left: auto;
+      font-size: 0.75rem;
+      color: var(--mist);
+    }
+    .no-photo {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--fog-light);
+    }
+    .no-photo svg { color: var(--fog); width: 48px; height: 48px; }
+    .listing-detail {
+      font-size: 0.82rem;
+      color: var(--stone);
+      line-height: 1.7;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        Smoky Mountain Living
+        <span>with Debra</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html">Listings</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-bg" role="img" aria-label="Mountain landscape background"></div>
+    <svg class="page-hero-ridge" viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0,70 L0,50 L80,32 L180,48 L280,18 L380,40 L480,10 L580,34 L680,20 L780,44 L880,16 L980,38 L1080,24 L1180,46 L1300,28 L1440,46 L1440,70 Z" fill="#F7F3EE"/>
+    </svg>
+    <div class="page-hero-content">
+      <p class="page-hero-eyebrow">Available properties</p>
+      <h1 class="page-hero-title">Discover your perfect<br><em style="font-style:italic">Smoky Mountain home</em></h1>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar" role="search" aria-label="Filter listings">
+    <div class="filter-bar-inner">
+      <span class="filter-label">Filter by</span>
+      <select class="filter-select" aria-label="Location">
+        <option>All locations</option>
+        <option>Maryville</option>
+        <option>Sevierville</option>
+        <option>Gatlinburg</option>
+        <option>Alcoa</option>
+        <option>Knoxville</option>
+      </select>
+      <select class="filter-select" aria-label="Bedrooms">
+        <option>Any bedrooms</option>
+        <option>2+ beds</option>
+        <option>3+ beds</option>
+        <option>4+ beds</option>
+      </select>
+      <select class="filter-select" aria-label="Price range">
+        <option>Any price</option>
+        <option>Under $250k</option>
+        <option>$250k – $400k</option>
+        <option>$400k – $600k</option>
+        <option>$600k+</option>
+      </select>
+      <span class="listing-count">2 listings</span>
+    </div>
+  </div>
+
+  <!-- LISTINGS GRID -->
+  <section class="section section-alt" aria-label="Property listings">
+    <div class="section-inner">
+      <div class="cards-grid">
+
+        <article class="listing-card reveal">
+          <div class="card-image-wrap">
+            <img src="images/listing-1.jpg" alt="686 Stockton Drive exterior" loading="lazy" />
+            <span class="card-badge">New listing</span>
+          </div>
+          <div class="card-body">
+            <div class="card-price">$348,000</div>
+            <div class="card-address">686 Stockton Drive, Maryville, TN 37803</div>
+            <div class="card-meta">
+              <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                3 bd
+              </span>
+              <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"/></svg>
+                2 ba
+              </span>
+              <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                1,840 ft²
+              </span>
+            </div>
+            <p class="listing-detail">Charming home nestled in a quiet Maryville neighborhood. Features an open-plan living area, updated kitchen, and a large backyard perfect for entertaining.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-agent">Listed by Debra Eldin · (865) 806-7541</span>
+            <a href="contact.html" class="card-cta">
+              Inquire
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="listing-card reveal reveal-delay-1">
+          <div class="card-image-wrap">
+            <img src="images/listing-2.jpg" alt="1854 Fantasy Way exterior" loading="lazy" />
+            <span class="card-badge gold">Mountain views</span>
+          </div>
+          <div class="card-body">
+            <div class="card-price">$279,500</div>
+            <div class="card-address">1854 Fantasy Way, Sevierville, TN 37862</div>
+            <div class="card-meta">
+              <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                4 bd
+              </span>
+              <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"/></svg>
+                2 ba
+              </span>
+              <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                2,100 ft²
+              </span>
+            </div>
+            <p class="listing-detail">Stunning property with sweeping mountain views. Spacious layout with four bedrooms, wraparound deck, and cathedral ceilings — a true Smoky Mountain retreat.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-agent">Listed by Debra Eldin · (865) 806-7541</span>
+            <a href="contact.html" class="card-cta">
+              Inquire
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- CTA TO CONTACT -->
+      <div style="margin-top: 5rem; text-align: center;" class="reveal">
+        <p style="font-family: var(--font-display); font-size: 1.5rem; color: var(--bark); margin-bottom: 0.5rem;">Don't see the right fit?</p>
+        <p style="font-size: 0.9rem; color: var(--stone); margin-bottom: 1.75rem; font-weight: 300;">Tell Debra what you're looking for and she'll find it for you.</p>
+        <a href="contact.html" class="btn btn-pine">Get in touch</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT STRIP -->
+  <div class="contact-strip">
+    <div class="contact-strip-inner">
+      <div>
+        <p style="font-family: var(--font-display); font-size: 1.4rem; color: var(--white); margin-bottom: 4px;">Have a question about a listing?</p>
+        <p style="font-size: 0.82rem; color: var(--mist); font-weight: 300;">Call or text Debra directly — she's always happy to talk.</p>
+      </div>
+      <div class="contact-info-items">
+        <div class="contact-info-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:8658067541">(865) 806-7541</a>
+        </div>
+        <a href="contact.html" class="btn btn-gold"><span>Send a message</span></a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Smoky Mountain Living<br><em style="font-style:italic; font-size:0.85em; font-weight:300">with Debra</em></div>
+        <p class="footer-desc">Your trusted real estate guide in East Tennessee. Serving Maryville, Sevierville, Gatlinburg, Alcoa, and surrounding Smoky Mountain communities.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/debraeldinrealtor" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/debra.eldin.realtor.2024/" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-heading">Navigate</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About Debra</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Contact</p>
+        <ul class="footer-links">
+          <li><a href="tel:8653664600">Office: (865) 366-4600</a></li>
+          <li><a href="tel:8658067541">Cell: (865) 806-7541</a></li>
+          <li><a href="mailto:debraeldinrealtor@gmail.com">debraeldinrealtor@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Smoky Mountain Living with Debra. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy policy</a>
+        <a href="#">Fair housing</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
