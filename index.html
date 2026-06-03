@@ -242,6 +242,15 @@ ul { list-style: none; }
   position: relative;
   z-index: 2;
 }
+.hero-left::after {
+  content: '';
+  position: absolute;
+  top: 0; right: -60px; bottom: 0;
+  width: 60px;
+  background: linear-gradient(to right, var(--forest), transparent);
+  pointer-events: none;
+  z-index: 3;
+}
 /* Subtle texture on left */
 .hero-left::before {
   content: '';
@@ -328,11 +337,6 @@ ul { list-style: none; }
   object-fit: cover;
   object-position: center 30%;
   filter: brightness(0.6) saturate(0.8) sepia(0.1);
-  animation: heroZoom 14s var(--ease) both;
-}
-@keyframes heroZoom {
-  from { transform: scale(1.06); }
-  to   { transform: scale(1); }
 }
 .hero-right-overlay {
   position: absolute;
@@ -346,17 +350,7 @@ ul { list-style: none; }
   z-index: 2;
   pointer-events: none;
 }
-/* Vertical gold line between panels */
-.hero-divider {
-  position: absolute;
-  left: 50%; top: 76px; bottom: 0;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, var(--gold) 15%, var(--gold) 85%, transparent);
-  opacity: 0.3;
-  z-index: 10;
-  animation: fadeIn 1.5s 0.5s ease both;
-}
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 0.3; } }
+/* hero-divider removed */
 
 /* Floating badge on right */
 .hero-badge {
@@ -1440,6 +1434,32 @@ ul { list-style: none; }
 @media (max-width: 900px) {
   .calc-wrap { grid-template-columns: 1fr; }
 }
+
+.book-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--forest);
+  color: var(--white);
+  border: none;
+  border-radius: 2px;
+  padding: 10px 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s, transform 0.2s;
+}
+.book-btn:hover {
+  background: var(--forest-mid);
+  transform: translateY(-1px);
+  color: var(--white);
+}
 </style>
 </head>
 <body>
@@ -1480,7 +1500,6 @@ ul { list-style: none; }
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-left">
-    <div class="hero-divider" aria-hidden="true"></div>
     <span class="hero-eyebrow">East Tennessee &bull; Mountain Home Realty</span>
     <h1 class="hero-h1">Turning Smoky<br>Mountain Dreams<br><em>Into Reality</em></h1>
     <p class="hero-sub">From your first search to the moment you hold the keys — Debra Eldin brings 32 years of East Tennessee living and 12 years of expert real estate service to every client.</p>
@@ -1499,14 +1518,17 @@ ul { list-style: none; }
     </div>
   </div>
   <div class="hero-right">
-    <img src="https://images.squarespace-cdn.com/content/v1/69a344c6bfe7aa136487d772/3cb6b16c-388c-440a-8906-25395cc3e262/IMG_1965.JPEG" alt="Smoky Mountain landscape at sunrise" loading="eager">
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(0.6) saturate(0.8) sepia(0.1);">
+      <source src="272183_medium.mp4" type="video/mp4">
+      <img src="https://images.squarespace-cdn.com/content/v1/69a344c6bfe7aa136487d772/3cb6b16c-388c-440a-8906-25395cc3e262/IMG_1965.JPEG" alt="Smoky Mountain landscape at sunrise">
+    </video>
     <div class="hero-right-overlay" aria-hidden="true"></div>
     <svg class="hero-right-ridge" viewBox="0 0 600 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;bottom:-1px;left:-1px;right:0;width:101%;pointer-events:none;z-index:2">
       <path d="M0,80 L0,55 L40,28 L80,45 L120,15 L165,38 L210,8 L255,32 L295,18 L340,42 L385,12 L430,36 L475,22 L520,48 L560,30 L600,50 L600,80 Z" fill="#1F3226"/>
     </svg>
     <div class="hero-badge">
       <span class="hero-badge-label">Active listings</span>
-      <span class="hero-badge-val">9 Homes</span>
+      <span class="hero-badge-val">12 Homes</span>
       <span class="hero-badge-sub">Smoky Mountain region</span>
     </div>
   </div>
@@ -2016,11 +2038,11 @@ ul { list-style: none; }
 </div>
 
 <script>
-var AP_HOMES = [{"price": "$644,900", "address": "3851 Mistletoe Loop, Sevierville, TN 37876", "beds": "2", "baths": "2", "sqft": "2,562", "badge": "Active", "photo": "https://images.homes.com/listings/115/5486315194-431033222/3851-mistletoe-loop-sevierville-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/3851-mistletoe-loop-sevierville-tn/pw3ss7gx5bdr0/", "notes": "Private Smoky Mountain Retreat on nearly 2 acres. Cabin living with wooded privacy, fenced yard, and finished basement."}, {"price": "$699,500", "address": "705 Rondayview Ln, Sevierville, TN 37876", "beds": "4", "baths": "2", "sqft": "1,960", "badge": "Active", "photo": "https://images.homes.com/listings/102/4709409094-382840222/705-rondayview-ln-sevierville-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/705-rondayview-ln-sevierville-tn/6ly2r48r66phb/", "notes": "Exceptional STR investment. 4 king bedrooms, game room, hot tub, fire pit. Minutes from Sevierville."}, {"price": "$1,250,000", "address": "1116 Greenbriar Village Ln, Gatlinburg, TN 37738", "beds": "5", "baths": "5.5", "sqft": "3,000", "badge": "Active", "photo": "https://images.homes.com/listings/102/7558700884-991149022/1116-greenbriar-village-ln-gatlinburg-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/1116-greenbriar-village-ln-gatlinburg-tn/tbvvwvz1nznp5/", "notes": "Proven Smoky Mountain retreat. Exceptional STR, second home, or private getaway. Prime Gatlinburg location."}, {"price": "$2,199,000", "address": "782 Park Vista Way, Gatlinburg, TN 37738", "beds": "6", "baths": "8", "sqft": "4,128", "badge": "Active", "photo": "https://images.homes.com/listings/102/4806437684-170452912/782-park-vista-way-gatlinburg-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/782-park-vista-way-gatlinburg-tn/b22bvy55zxyzg/", "notes": "Luxury Smoky Mountain Lodge. Sleeps 22+. Panoramic views of Gatlinburg, Ober Mountain, and the Smokies."}, {"price": "$399,000", "address": "2812 Burnett Dr, Kodak, TN 37764", "beds": "3", "baths": "2", "sqft": "2,480", "badge": "Active", "photo": "https://images.homes.com/listings/115/5597059094-138850222/2812-burnett-dr-kodak-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/2812-burnett-dr-kodak-tn/7qjn3jd07bdnp/", "notes": "Multigenerational living home on a private mountain top. Great opportunity for the right buyer."}, {"price": "$323,500", "address": "3238 Four M Cir, Kodak, TN 37764", "beds": "3", "baths": "3", "sqft": "2,084", "badge": "Active", "photo": "https://images.homes.com/listings/102/5309668374-098731412/3238-four-m-cir-kodak-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/3238-four-m-cir-kodak-tn/lj6jmmmvfwftx/", "notes": "3 bed/3 bath on 2.02 unrestricted acres. Finished lower level as in-law suite. Ideal for multigenerational living."}, {"price": "$379,700", "address": "3386 Rocky Ridge Rd, Cosby, TN 37722", "beds": "2", "baths": "4", "sqft": "1,122", "badge": "Active", "photo": "https://images.homes.com/listings/102/5684415194-984421812/3386-rocky-ridge-rd-cosby-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/3386-rocky-ridge-rd-cosby-tn/hqpb9lh5x6bd5/", "notes": "Charming mountain retreat on 1 flat acre with tranquil creek views. Paved access."}, {"price": "$239,900", "address": "630 Pinemont Dr, Pigeon Forge, TN 37863", "beds": "2", "baths": "1", "sqft": "1,056", "badge": "Active", "photo": "https://images.homes.com/listings/102/6414640984-736513122/630-pinemont-dr-pigeon-forge-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/630-pinemont-dr-pigeon-forge-tn/xsrs9t137c0rq/", "notes": "Rare private Smoky Mountain retreat in non-STR neighborhood. 5 minutes from Dollywood and the Parkway."}, {"price": "$945,000", "address": "686 Stockton Dr, Sevierville, TN 37876", "beds": "3", "baths": "6", "sqft": "3,147", "badge": "Sold", "photo": "https://images.homes.com/listings/115/1630756264-157517212/686-stockton-dr-sevierville-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/686-stockton-dr-sevierville-tn/2tw82r87l0zlc/", "notes": "Sold Apr 2026"}, {"price": "$875,000", "address": "1854 Fantasy Way, Sevierville, TN 37876", "beds": "3", "baths": "3.5", "sqft": "2,421", "badge": "Sold", "photo": "https://images.homes.com/listings/102/8158387354-265269502/1854-fantasy-way-sevierville-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/1854-fantasy-way-sevierville-tn/qvpts38w092zj/", "notes": "Sold Apr 2026"}, {"price": "$824,000", "address": "1507 Boo Boos Way, Sevierville, TN 37862", "beds": "4", "baths": "3.5", "sqft": "2,016", "badge": "Sold", "photo": "https://images.homes.com/listings/102/6006203254-560597991/1507-boo-boos-way-sevierville-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/1507-boo-boos-way-sevierville-tn/b97bpvw9nrhpb/", "notes": "Sold Nov 2025"}, {"price": "$630,000", "address": "2738 Indian Creek Rd, Dandridge, TN 37725", "beds": "3", "baths": "2", "sqft": "1,386", "badge": "Sold", "photo": "https://images.homes.com/listings/102/5304526634-942400991/2738-indian-creek-rd-dandridge-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/2738-indian-creek-rd-dandridge-tn/id-2000097161064/", "notes": "Sold \u2014 Douglas Lake lakefront on 25+ acres"}, {"price": "$340,000", "address": "335 Fenway Dr, Pigeon Forge, TN 37863", "beds": "2", "baths": "2", "sqft": "1,258", "badge": "Sold", "photo": "https://images.homes.com/listings/115/5051125184-456341312/335-fenway-dr-pigeon-forge-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/335-fenway-dr-pigeon-forge-tn/r8txwtlz6wq3d/", "notes": "Sold Apr 2026"}, {"price": "$245,000", "address": "2743 Colonial Dr #109, Pigeon Forge, TN 37863", "beds": "1", "baths": "1", "sqft": "680", "badge": "Sold", "photo": "https://images.homes.com/listings/102/0841086754-002050802/2743-colonial-dr-pigeon-forge-tn-unit-109-primaryphoto.jpg", "url": "https://www.homes.com/property/2743-colonial-dr-pigeon-forge-tn-unit-109/m80j51ejsyjyf/", "notes": "Sold Dec 2025"}];
-var AP_LOTS  = [{"price": "$38,000", "address": "0 Bluff Mountain Rd, Sevierville, TN 37876", "beds": "", "baths": "", "sqft": "0.34 Acres", "badge": "Sold", "photo": "https://images.homes.com/listings/115/6800927484-970511712/0-bluff-mountain-rd-sevierville-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/0-bluff-mountain-rd-sevierville-tn-unit-1331990/7c6e48m0xbctj/", "notes": "Sold Apr 2026 \u00b7 0.34 acre lot in Sevierville"}];
+var AP_HOMES = [{"price": "$644,900", "address": "3851 Mistletoe Loop, Sevierville, TN 37876", "beds": "2", "baths": "2", "sqft": "2,562", "badge": "Active", "photo": "https://images.homes.com/listings/115/5486315194-431033222/3851-mistletoe-loop-sevierville-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/3851-mistletoe-loop-sevierville-tn/pw3ss7gx5bdr0/", "notes": "Private Smoky Mountain Retreat on nearly 2 acres. Cabin living with wooded privacy, fenced yard, and finished basement."}, {"price": "$699,500", "address": "705 Rondayview Ln, Sevierville, TN 37876", "beds": "4", "baths": "2", "sqft": "1,960", "badge": "Active", "photo": "https://images.homes.com/listings/102/4709409094-382840222/705-rondayview-ln-sevierville-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/705-rondayview-ln-sevierville-tn/6ly2r48r66phb/", "notes": "Exceptional STR investment. 4 king bedrooms, game room, hot tub, fire pit. Minutes from Sevierville."}, {"price": "$1,250,000", "address": "1116 Greenbriar Village Ln, Gatlinburg, TN 37738", "beds": "5", "baths": "5.5", "sqft": "3,000", "badge": "Active", "photo": "https://images.homes.com/listings/102/7558700884-991149022/1116-greenbriar-village-ln-gatlinburg-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/1116-greenbriar-village-ln-gatlinburg-tn/tbvvwvz1nznp5/", "notes": "Proven Smoky Mountain retreat. Exceptional STR, second home, or private getaway. Prime Gatlinburg location."}, {"price": "$2,199,000", "address": "782 Park Vista Way, Gatlinburg, TN 37738", "beds": "6", "baths": "8", "sqft": "4,128", "badge": "Active", "photo": "https://images.homes.com/listings/102/4806437684-170452912/782-park-vista-way-gatlinburg-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/782-park-vista-way-gatlinburg-tn/b22bvy55zxyzg/", "notes": "Luxury Smoky Mountain Lodge. Sleeps 22+. Panoramic views of Gatlinburg, Ober Mountain, and the Smokies."}, {"price": "$399,000", "address": "2812 Burnett Dr, Kodak, TN 37764", "beds": "3", "baths": "2", "sqft": "2,480", "badge": "Active", "photo": "https://images.homes.com/listings/115/5597059094-138850222/2812-burnett-dr-kodak-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/2812-burnett-dr-kodak-tn/7qjn3jd07bdnp/", "notes": "Multigenerational living home on a private mountain top. Great opportunity for the right buyer."}, {"price": "$323,500", "address": "3238 Four M Cir, Kodak, TN 37764", "beds": "3", "baths": "3", "sqft": "2,084", "badge": "Active", "photo": "https://images.homes.com/listings/102/5309668374-098731412/3238-four-m-cir-kodak-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/3238-four-m-cir-kodak-tn/lj6jmmmvfwftx/", "notes": "3 bed/3 bath on 2.02 unrestricted acres. Finished lower level as in-law suite. Ideal for multigenerational living."}, {"price": "$379,700", "address": "3386 Rocky Ridge Rd, Cosby, TN 37722", "beds": "2", "baths": "4", "sqft": "1,122", "badge": "Active", "photo": "https://images.homes.com/listings/102/5684415194-984421812/3386-rocky-ridge-rd-cosby-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/3386-rocky-ridge-rd-cosby-tn/hqpb9lh5x6bd5/", "notes": "Charming mountain retreat on 1 flat acre with tranquil creek views. Paved access."}, {"price": "$239,900", "address": "630 Pinemont Dr, Pigeon Forge, TN 37863", "beds": "2", "baths": "1", "sqft": "1,056", "badge": "Active", "photo": "https://images.homes.com/listings/102/6414640984-736513122/630-pinemont-dr-pigeon-forge-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/630-pinemont-dr-pigeon-forge-tn/xsrs9t137c0rq/", "notes": "Rare private Smoky Mountain retreat in non-STR neighborhood. 5 minutes from Dollywood and the Parkway."}, {"price": "$359,900", "address": "1044 Keener Rd, Seymour, TN 37865", "beds": "3", "baths": "2", "sqft": "1,568", "badge": "Active", "photo": "https://images.homes.com/listings/102/7460538584-152204812/1044-keener-rd-seymour-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/1044-keener-rd-seymour-tn/4chdq8y5kd13b/", "notes": "Rare 3.64 acres of level farmland with mountain views. Peaceful country setting."}, {"price": "$549,900", "address": "3138 Laurelwood Ln, Sevierville, TN 37862", "beds": "", "baths": "", "sqft": "1,617", "badge": "Active", "photo": "https://images.homes.com/listings/102/9897276384-433097712/3138-laurelwood-ln-sevierville-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/3138-laurelwood-ln-sevierville-tn/l6pk7sxbkczly/", "notes": "Stunning views, paved access \u2014 no steep roads. Built 2024."}, {"price": "$390,000", "address": "616 Turkey Nest Rd #209, Gatlinburg, TN 37738", "beds": "2", "baths": "2", "sqft": "888", "badge": "Active", "photo": "https://images.homes.com/listings/102/3316521084-594431312/616-turkey-nest-rd-gatlinburg-tn-unit-209-primaryphoto.jpg", "url": "https://www.homes.com/property/616-turkey-nest-rd-gatlinburg-tn-unit-209/65q0vn8crl5l9/", "notes": "Beautifully updated fully furnished condo in downtown Gatlinburg with mountain views."}, {"price": "$249,900", "address": "2743 Colonial Dr #205, Pigeon Forge, TN 37863", "beds": "1", "baths": "1", "sqft": "680", "badge": "Active", "photo": "https://images.homes.com/listings/102/9235004874-652511612/2743-colonial-dr-pigeon-forge-tn-unit-205-primaryphoto.jpg", "url": "https://www.homes.com/property/2743-colonial-dr-pigeon-forge-tn-unit-205/hq20mlzc8x698/", "notes": "Fully furnished 1BR/1BA condo, sleeps 4. Prime Pigeon Forge location."}, {"price": "$945,000", "address": "686 Stockton Dr, Sevierville, TN 37876", "beds": "3", "baths": "6", "sqft": "3,147", "badge": "Sold", "photo": "https://images.homes.com/listings/115/1630756264-157517212/686-stockton-dr-sevierville-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/686-stockton-dr-sevierville-tn/2tw82r87l0zlc/", "notes": "Sold Apr 2026"}, {"price": "$875,000", "address": "1854 Fantasy Way, Sevierville, TN 37876", "beds": "3", "baths": "3.5", "sqft": "2,421", "badge": "Sold", "photo": "https://images.homes.com/listings/102/8158387354-265269502/1854-fantasy-way-sevierville-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/1854-fantasy-way-sevierville-tn/qvpts38w092zj/", "notes": "Sold Apr 2026"}, {"price": "$824,000", "address": "1507 Boo Boos Way, Sevierville, TN 37862", "beds": "4", "baths": "3.5", "sqft": "2,016", "badge": "Sold", "photo": "https://images.homes.com/listings/102/6006203254-560597991/1507-boo-boos-way-sevierville-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/1507-boo-boos-way-sevierville-tn/b97bpvw9nrhpb/", "notes": "Sold Nov 2025"}, {"price": "$630,000", "address": "2738 Indian Creek Rd, Dandridge, TN 37725", "beds": "3", "baths": "2", "sqft": "1,386", "badge": "Sold", "photo": "https://images.homes.com/listings/102/5304526634-942400991/2738-indian-creek-rd-dandridge-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/2738-indian-creek-rd-dandridge-tn/id-2000097161064/", "notes": "Sold \u2014 Douglas Lake lakefront on 25+ acres"}, {"price": "$340,000", "address": "335 Fenway Dr, Pigeon Forge, TN 37863", "beds": "2", "baths": "2", "sqft": "1,258", "badge": "Sold", "photo": "https://images.homes.com/listings/115/5051125184-456341312/335-fenway-dr-pigeon-forge-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/335-fenway-dr-pigeon-forge-tn/r8txwtlz6wq3d/", "notes": "Sold Apr 2026"}, {"price": "$245,000", "address": "2743 Colonial Dr #109, Pigeon Forge, TN 37863", "beds": "1", "baths": "1", "sqft": "680", "badge": "Sold", "photo": "https://images.homes.com/listings/102/0841086754-002050802/2743-colonial-dr-pigeon-forge-tn-unit-109-primaryphoto.jpg", "url": "https://www.homes.com/property/2743-colonial-dr-pigeon-forge-tn-unit-109/m80j51ejsyjyf/", "notes": "Sold Dec 2025"}];
+var AP_LOTS  = [{"price": "$38,000", "address": "0 Bluff Mountain Rd, Sevierville, TN 37876", "beds": "", "baths": "", "sqft": "0.34 Acres", "badge": "Sold", "photo": "https://images.homes.com/listings/115/6800927484-970511712/0-bluff-mountain-rd-sevierville-tn-primaryphoto.jpg", "url": "https://www.homes.com/property/0-bluff-mountain-rd-sevierville-tn-unit-1331990/7c6e48m0xbctj/", "notes": "Sold Apr 2026 \u00b7 0.34 acre lot in Sevierville"}, {"price": "$110,000", "address": "0 Graystone Shoals #1324331, Morristown, TN 37814", "beds": "", "baths": "", "sqft": "0.26 Acres", "badge": "Active", "photo": "https://images.homes.com/listings/102/8693598074-051081312/0-graystone-shoals-morristown-tn-unit-1324331-primaryphoto.jpg", "url": "https://www.homes.com/property/0-graystone-shoals-morristown-tn-unit-1324331/n3khr45tzvnel/", "notes": "Serenity Cove on Cherokee Lake. Build your dream home in Morristown's most desirable lakeside community."}, {"price": "$120,000", "address": "0 Graystone Shoals #1324333, Morristown, TN 37814", "beds": "", "baths": "", "sqft": "0.28 Acres", "badge": "Active", "photo": "https://images.homes.com/listings/102/1343798074-064081312/0-graystone-shoals-morristown-tn-unit-1324333-primaryphoto.jpg", "url": "https://www.homes.com/property/0-graystone-shoals-morristown-tn-unit-1324333/6rwze8bchx34e/", "notes": "Serenity Cove on Cherokee Lake. Exceptional lakeside building lot in Morristown."}];
 
-var HOMES_KEY = 'smld3_homes';
-var LOTS_KEY  = 'smld3_lots';
+var HOMES_KEY = 'smld4_homes';
+var LOTS_KEY  = 'smld4_lots';
 
 function getListings(type) {
   var key = type === 'lots' ? LOTS_KEY : HOMES_KEY;
@@ -2113,6 +2135,11 @@ function makeCard(l, type) {
   // Footer
   var footer = document.createElement('div');
   footer.className = 'card-footer';
+  footer.style.cssText = 'flex-direction:column;gap:0.6rem;padding:0.85rem 1.4rem';
+
+  // Top row: agent + homes.com link
+  var footerTop = document.createElement('div');
+  footerTop.style.cssText = 'display:flex;align-items:center;justify-content:space-between;width:100%';
   var agent = document.createElement('span');
   agent.className = 'card-agent';
   agent.textContent = 'Listed by Debra Eldin';
@@ -2120,9 +2147,23 @@ function makeCard(l, type) {
   link.className = 'card-link';
   link.href = l.url || '#contact';
   if (l.url) { link.target = '_blank'; link.rel = 'noopener'; }
-  link.textContent = l.url ? 'View on Homes.com' : 'Schedule showing';
-  footer.appendChild(agent);
-  footer.appendChild(link);
+  link.textContent = l.url ? 'View on Homes.com' : 'Details';
+  footerTop.appendChild(agent);
+  footerTop.appendChild(link);
+  footer.appendChild(footerTop);
+
+  // Book a showing button — active listings only
+  if (!l.badge || l.badge.toLowerCase() !== 'sold') {
+    var bookBtn = document.createElement('a');
+    bookBtn.href = 'https://calendly.com/debraeldinrealtor/30min?a1=' + encodeURIComponent(l.address);
+    bookBtn.target = '_blank';
+    bookBtn.rel = 'noopener';
+    bookBtn.className = 'book-btn';
+    bookBtn.onclick = function(e) { e.stopPropagation(); };
+    bookBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Book a showing';
+    footer.appendChild(bookBtn);
+  }
+
   article.appendChild(footer);
 
   // Click handler
