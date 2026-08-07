@@ -2885,7 +2885,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!track || !thumb || !sbTrack) return;
   var scrollX = 0, paused = false, lastTime = null;
   function totalW()  { return track.scrollWidth / 2; }
-  function spd()     { return totalW() / 45000; }
+  function spd()     { return totalW() / 90000; }
   function updateThumb() { thumb.style.width = Math.max(60, (window.innerWidth / totalW()) * sbTrack.offsetWidth) + 'px'; }
   function setScroll(x) {
     var t = totalW(); scrollX = ((x % t) + t) % t;
