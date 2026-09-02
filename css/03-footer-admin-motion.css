@@ -48,7 +48,7 @@
   .hero-copy { position: relative; z-index: 2; min-height: 100svh; justify-content: flex-end; padding-bottom: 5rem; }
   .hero-visual-overlay { background: linear-gradient(180deg, rgba(21,19,15,0.3) 0%, rgba(21,19,15,0.55) 40%, rgba(21,19,15,0.92) 85%, var(--obsidian) 100%); }
   .hero-topo { opacity: 0.25; }
-  .hero-badge { left: var(--pad); bottom: 6.5rem; }
+  .hero-badge, .hero-scroll-cue { display: none; }
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .about-portrait { aspect-ratio: 16/10; }
   .about-ribbon { right: 0; }
@@ -79,7 +79,6 @@
   .about-portrait-frame { right: -12px; bottom: -12px; }
   .about-ribbon { right: 0.5rem; bottom: -1.25rem; padding: 1rem 1.25rem; }
   .t-marquee::before, .t-marquee::after { width: 48px; }
-  .hero-badge { padding: 0.9rem 1.1rem; gap: 10px; }
   .calc-terms { gap: 6px; }
   .calc-term-btn { padding: 9px 2px; }
 }
