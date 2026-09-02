@@ -135,7 +135,6 @@
         <span class="kicker">Properties</span>
         <h2 class="h-section">Featured listings</h2>
       </div>
-      <button class="btn btn-dark btn-sm" onclick="adminOpen()">Manage Listings</button>
     </div>
     <div class="tabs-row reveal will-animate" role="tablist">
       <button class="tab active" id="tab-homes" onclick="switchTab('homes')">
@@ -358,48 +357,6 @@
 <button class="to-top" id="toTop" aria-label="Back to top">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
-
-<!-- ═══ ADMIN PANEL ═══ -->
-<div class="admin-overlay" id="adminOverlay">
-  <div class="admin-panel">
-    <div class="admin-head">
-      <h3>Manage Listings</h3>
-      <button class="admin-close" onclick="adminClose()">&#10005;</button>
-    </div>
-    <div id="adminGate" class="admin-gate">
-      <p style="margin-bottom:1rem;color:var(--taupe)">Enter password to continue</p>
-      <input type="password" id="adminPassInput" class="cf-input" style="max-width:260px;margin:0 auto 1rem" onkeydown="if(event.key==='Enter')adminCheckPassword()">
-      <p id="adminPassError" style="display:none;color:var(--clay);font-size:0.8rem;margin-bottom:1rem">Incorrect password.</p>
-      <br><button class="btn btn-dark btn-sm" onclick="adminCheckPassword()">Continue</button>
-    </div>
-    <div id="adminMain" class="admin-body" style="display:none;padding:0">
-      <div class="admin-body">
-        <h4 style="font-family:var(--display);margin-bottom:1rem">Add a Listing</h4>
-        <div class="admin-g2">
-          <div class="admin-field"><label>Type</label><select id="adminNewType"><option value="homes">Home</option><option value="lots">Lot</option></select></div>
-          <div class="admin-field"><label>Badge</label><select id="adminNewBadge"><option>Active</option><option>New</option><option>Sold</option></select></div>
-        </div>
-        <div class="admin-field"><label>Address</label><input id="adminNewAddress"></div>
-        <div class="admin-g2">
-          <div class="admin-field"><label>Price</label><input id="adminNewPrice" placeholder="$550,000"></div>
-          <div class="admin-field"><label>Photo URL</label><input id="adminNewPhoto"></div>
-        </div>
-        <div class="admin-g2">
-          <div class="admin-field"><label>Beds</label><input id="adminNewBeds"></div>
-          <div class="admin-field"><label>Baths</label><input id="adminNewBaths"></div>
-        </div>
-        <div class="admin-g2">
-          <div class="admin-field"><label>Sqft</label><input id="adminNewSqft"></div>
-          <div class="admin-field"><label>Listing URL</label><input id="adminNewUrl"></div>
-        </div>
-        <button class="btn btn-clay btn-sm" onclick="adminAddListing()">Add Listing</button>
-        <h4 style="font-family:var(--display);margin:2rem 0 1rem">Current Listings</h4>
-        <div id="adminListWrap"></div>
-        <button class="btn btn-outline btn-sm" style="margin-top:1rem" onclick="adminExport()">Export Updated data.js</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script src="js/data.js"></script>
 <script src="js/app.js"></script>
