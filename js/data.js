@@ -90,7 +90,7 @@ const SITE_DATA = {
     "baths": "2",
     "sqft": "2,976",
     "badge": "Active",
-    "photo": "",
+    "photo": "https://images.homes.com/listings/102/2195770405-331527132/4527-e-scenic-dr-gatlinburg-tn-primaryphoto.jpg",
     "url": "https://www.homes.com/property/4527-e-scenic-dr-gatlinburg-tn/4kkdtmpxgkzt9/",
     "notes": "Smoky Mountain retreat surrounded by 30+ flowering dogwoods, azaleas & maples. Nearly 3,000 sq ft of refreshed living space with stone fireplace and mountain views."
   },
@@ -101,7 +101,7 @@ const SITE_DATA = {
     "baths": "2",
     "sqft": "1,737",
     "badge": "Active",
-    "photo": "",
+    "photo": "https://images.homes.com/listings/102/0357090194-935072712/2206-castle-rise-way-sevierville-tn-primaryphoto.jpg",
     "url": "https://www.homes.com/property/2206-castle-rise-way-sevierville-tn/hhx9lkwwxfnz9/",
     "notes": "Charming mountain cabin with vaulted ceilings, stone fireplace, screened porch, and new metal roof. 1.35 acres. Perfect for full-time living or private retreat."
   },
@@ -112,7 +112,7 @@ const SITE_DATA = {
     "baths": "3",
     "sqft": "1,976",
     "badge": "Active",
-    "photo": "",
+    "photo": "https://images.homes.com/listings/102/9227113905-896989332/503-apple-view-way-sevierville-tn-unit-105-primaryphoto.jpg",
     "url": "https://www.homes.com/property/503-apple-view-way-sevierville-tn-unit-105/50bj0rg18xn7y/",
     "notes": "New listing. MLS# 1353603."
   },
@@ -123,7 +123,7 @@ const SITE_DATA = {
     "baths": "3",
     "sqft": "3,640",
     "badge": "Active",
-    "photo": "",
+    "photo": "https://images.homes.com/listings/102/7182134894-500946722/3158-nevils-way-sevierville-tn-primaryphoto.jpg",
     "url": "https://www.homes.com/property/3158-nevils-way-sevierville-tn/nt2h17g7tfftv/",
     "notes": "MLS# 1346261."
   },
@@ -134,7 +134,7 @@ const SITE_DATA = {
     "baths": "7",
     "sqft": "3,144",
     "badge": "Active",
-    "photo": "",
+    "photo": "https://images.homes.com/listings/102/7605820705-047778232/852-bear-run-way-sevierville-tn-primaryphoto.jpg",
     "url": "https://www.homes.com/property/852-bear-run-way-sevierville-tn/0vxxxye4yv2g1/",
     "notes": "MLS# 1351920."
   },
@@ -225,7 +225,7 @@ const SITE_DATA = {
     "baths": "",
     "sqft": "1.33 Acres",
     "badge": "Active",
-    "photo": "",
+    "photo": "https://images.homes.com/listings/102/4423101184-213160712/0-moonside-ln-sevierville-tn-primaryphoto.jpg",
     "url": "https://www.homes.com/property/0-moonside-ln-sevierville-tn/tg72zzgjj1hwc/",
     "notes": "MLS# 1331777. The Lake Life Called—and It Has Your Name on It! 1.33-acre Douglas Lake lot minutes from downtown Sevierville."
   },
