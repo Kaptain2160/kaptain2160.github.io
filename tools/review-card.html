@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Review Card Renderer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Outfit:wght@400;500;600&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:1080px; height:1080px; background:#15130F; }
+  .card {
+    width:1080px; height:1080px;
+    background:
+      radial-gradient(circle at 15% 10%, rgba(184,134,62,0.16), transparent 45%),
+      radial-gradient(circle at 90% 90%, rgba(168,82,54,0.14), transparent 50%),
+      #15130F;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:100px 110px;
+    position:relative;
+    font-family:'Outfit',sans-serif;
+    overflow:hidden;
+  }
+  .card::before {
+    content:'';
+    position:absolute; inset:44px;
+    border:1px solid rgba(217,174,108,0.35);
+  }
+  .mark { display:flex; align-items:center; gap:14px; margin-bottom:56px; }
+  .mark-ring { width:52px; height:52px; border-radius:50%; border:1px solid rgba(217,174,108,0.55); display:flex; align-items:center; justify-content:center; }
+  .mark-name { font-family:'Fraunces',serif; font-weight:600; font-size:22px; color:#FEFDFA; letter-spacing:0.01em; }
+  .mark-sub { font-family:'Fraunces',serif; font-style:italic; font-size:14px; color:#D9AE6C; margin-top:2px; }
+  .stars { font-size:32px; letter-spacing:6px; color:#D9AE6C; margin-bottom:44px; }
+  .quote {
+    font-family:'Fraunces',serif; font-style:italic; font-weight:500;
+    font-size:44px; line-height:1.42; color:#FEFDFA;
+    text-align:center; max-width:830px;
+  }
+  .rule { width:64px; height:1px; background:#B8863E; margin:48px 0 28px; }
+  .author { font-family:'Fraunces',serif; font-weight:600; font-size:24px; color:#FEFDFA; }
+  .author-tag { font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:#8A7F6C; margin-top:8px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="mark">
+      <div class="mark-ring"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9AE6C" stroke-width="1.6"><path d="M3 21l9-15 9 15H3z"/><path d="M9 21l3-6 3 6"/></svg></div>
+      <div>
+        <div class="mark-name">Debra Eldin</div>
+        <div class="mark-sub">Mountain Home Realty</div>
+      </div>
+    </div>
+    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <p class="quote" id="quoteText">QUOTE_PLACEHOLDER</p>
+    <div class="rule"></div>
+    <div class="author" id="authorText">AUTHOR_PLACEHOLDER</div>
+    <div class="author-tag">Verified Client Review</div>
+  </div>
+<script>
+  var params = new URLSearchParams(window.location.search);
+  var q = params.get('q') || '';
+  var a = params.get('a') || '';
+  var qEl = document.getElementById('quoteText');
+  var aEl = document.getElementById('authorText');
+  qEl.textContent = '“' + q + '”';
+  aEl.textContent = a;
+  var len = q.length;
+  var size = len > 340 ? 30 : len > 260 ? 34 : len > 180 ? 38 : len > 100 ? 42 : 48;
+  qEl.style.fontSize = size + 'px';
+  qEl.style.lineHeight = '1.5';
+</script>
+</body>
+</html>
