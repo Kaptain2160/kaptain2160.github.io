@@ -84,17 +84,6 @@ const SITE_DATA = {
     "notes": "Fully furnished 1BR/1BA condo, sleeps 4. Prime Pigeon Forge location."
   },
   {
-    "price": "$597,500",
-    "address": "4527 E Scenic Dr, Gatlinburg, TN 37738",
-    "beds": "2",
-    "baths": "2",
-    "sqft": "2,976",
-    "badge": "Active",
-    "photo": "https://images.homes.com/listings/102/2195770405-331527132/4527-e-scenic-dr-gatlinburg-tn-primaryphoto.jpg",
-    "url": "https://www.homes.com/property/4527-e-scenic-dr-gatlinburg-tn/4kkdtmpxgkzt9/",
-    "notes": "Smoky Mountain retreat surrounded by 30+ flowering dogwoods, azaleas & maples. Nearly 3,000 sq ft of refreshed living space with stone fireplace and mountain views."
-  },
-  {
     "price": "$467,150",
     "address": "2206 Castle Rise Way, Sevierville, TN 37862",
     "beds": "2",
@@ -207,6 +196,17 @@ const SITE_DATA = {
 ],
 
   lots: [
+  {
+    "price": "$597,500",
+    "address": "4527 E Scenic Dr, Gatlinburg, TN 37738",
+    "beds": "2",
+    "baths": "2",
+    "sqft": "2,976",
+    "badge": "Active",
+    "photo": "https://images.homes.com/listings/102/2195770405-331527132/4527-e-scenic-dr-gatlinburg-tn-primaryphoto.jpg",
+    "url": "https://www.homes.com/property/4527-e-scenic-dr-gatlinburg-tn/4kkdtmpxgkzt9/",
+    "notes": "Smoky Mountain retreat surrounded by 30+ flowering dogwoods, azaleas & maples. Nearly 3,000 sq ft of refreshed living space with stone fireplace and mountain views."
+  },
   {
     "price": "$38,000",
     "address": "0 Bluff Mountain Rd, Sevierville, TN 37876",
