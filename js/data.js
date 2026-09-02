@@ -91,7 +91,7 @@ const SITE_DATA = {
     "sqft": "2,976",
     "badge": "Active",
     "photo": "",
-    "url": "https://www.homes.com/property/4527-e-scenic-dr-gatlinburg-tn/4chdq8y5kd13b/",
+    "url": "https://www.homes.com/property/4527-e-scenic-dr-gatlinburg-tn/4kkdtmpxgkzt9/",
     "notes": "Smoky Mountain retreat surrounded by 30+ flowering dogwoods, azaleas & maples. Nearly 3,000 sq ft of refreshed living space with stone fireplace and mountain views."
   },
   {
@@ -102,40 +102,40 @@ const SITE_DATA = {
     "sqft": "1,737",
     "badge": "Active",
     "photo": "",
-    "url": "https://www.homes.com/property/2206-castle-rise-way-sevierville-tn/l6pk7sxbkczly/",
+    "url": "https://www.homes.com/property/2206-castle-rise-way-sevierville-tn/hhx9lkwwxfnz9/",
     "notes": "Charming mountain cabin with vaulted ceilings, stone fireplace, screened porch, and new metal roof. 1.35 acres. Perfect for full-time living or private retreat."
   },
   {
     "price": "$583,500",
-    "address": "503 Apple View Way #105, Pigeon Forge, TN 37862",
-    "beds": "",
-    "baths": "",
-    "sqft": "",
+    "address": "503 Apple View Way #105, Sevierville, TN 37862",
+    "beds": "3",
+    "baths": "3",
+    "sqft": "1,976",
     "badge": "Active",
     "photo": "",
-    "url": "",
+    "url": "https://www.homes.com/property/503-apple-view-way-sevierville-tn-unit-105/50bj0rg18xn7y/",
     "notes": "New listing. MLS# 1353603."
   },
   {
     "price": "$859,500",
     "address": "3158 Nevils Way, Sevierville, TN 37876",
-    "beds": "",
-    "baths": "",
-    "sqft": "",
+    "beds": "3",
+    "baths": "3",
+    "sqft": "3,640",
     "badge": "Active",
     "photo": "",
-    "url": "",
+    "url": "https://www.homes.com/property/3158-nevils-way-sevierville-tn/nt2h17g7tfftv/",
     "notes": "MLS# 1346261."
   },
   {
     "price": "$724,900",
     "address": "852 Bear Run Way, Sevierville, TN 37862",
-    "beds": "",
-    "baths": "",
-    "sqft": "",
+    "beds": "7",
+    "baths": "7",
+    "sqft": "3,144",
     "badge": "Active",
     "photo": "",
-    "url": "",
+    "url": "https://www.homes.com/property/852-bear-run-way-sevierville-tn/0vxxxye4yv2g1/",
     "notes": "MLS# 1351920."
   },
   {
@@ -179,7 +179,7 @@ const SITE_DATA = {
     "sqft": "1,386",
     "badge": "Sold",
     "photo": "https://images.homes.com/listings/102/5304526634-942400991/2738-indian-creek-rd-dandridge-tn-primaryphoto.jpg",
-    "url": "https://www.homes.com/property/2738-indian-creek-rd-dandridge-tn/id-2000097161064/",
+    "url": "https://www.homes.com/property/2738-indian-creek-rd-dandridge-tn/m6dff5xrkk3d2/",
     "notes": "Sold \u2014 Douglas Lake lakefront on 25+ acres"
   },
   {
@@ -220,14 +220,14 @@ const SITE_DATA = {
   },
   {
     "price": "$119,900",
-    "address": "Moonside Lane, Sevierville, TN 37876",
+    "address": "0 Moonside Ln, Sevierville, TN 37876",
     "beds": "",
     "baths": "",
-    "sqft": "",
+    "sqft": "1.33 Acres",
     "badge": "Active",
     "photo": "",
-    "url": "",
-    "notes": "MLS# 1331777."
+    "url": "https://www.homes.com/property/0-moonside-ln-sevierville-tn/tg72zzgjj1hwc/",
+    "notes": "MLS# 1331777. The Lake Life Called—and It Has Your Name on It! 1.33-acre Douglas Lake lot minutes from downtown Sevierville."
   },
   {
     "price": "$110,000",
