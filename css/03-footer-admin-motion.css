@@ -17,34 +17,6 @@
 .footer-legal a { color: rgba(250,246,237,0.45); }
 .footer-legal a:hover { color: var(--brass-light); }
 
-/* ── ADMIN PANELS ── */
-.admin-overlay {
-  position: fixed; inset: 0; background: rgba(15,17,13,0.72);
-  backdrop-filter: blur(4px); z-index: 500;
-  display: none; align-items: center; justify-content: center; padding: 2rem;
-}
-.admin-overlay.open { display: flex; }
-.admin-panel {
-  background: var(--paper); width: 100%; max-width: 720px; max-height: 88vh;
-  border-radius: var(--radius); overflow-y: auto; box-shadow: var(--shadow-lg);
-}
-.admin-head { position: sticky; top: 0; background: var(--obsidian); color: var(--paper); padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; z-index: 2; }
-.admin-head h3 { font-family: var(--display); font-size: 1.2rem; }
-.admin-close { width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(250,246,237,0.25); display: flex; align-items: center; justify-content: center; }
-.admin-body { padding: 2rem; }
-.admin-gate { text-align: center; padding: 3rem 2rem; }
-.admin-field { margin-bottom: 1rem; }
-.admin-field label { display: block; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--taupe); margin-bottom: 6px; }
-.admin-field input, .admin-field select, .admin-field textarea {
-  width: 100%; padding: 11px 13px; border: 1px solid var(--fog); border-radius: var(--radius-sm); background: var(--linen); font-size: 0.88rem;
-}
-.admin-g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.admin-list-item { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1rem; border: 1px solid var(--fog); border-radius: var(--radius-sm); margin-bottom: 0.6rem; }
-.admin-list-item-info { font-size: 0.85rem; }
-.admin-list-item-actions { display: flex; gap: 8px; }
-.admin-icon-btn { width: 30px; height: 30px; border-radius: var(--radius-sm); border: 1px solid var(--fog); display: flex; align-items: center; justify-content: center; }
-.admin-icon-btn:hover { background: var(--parchment); }
-
 /* ── SCROLL REVEAL SYSTEM ── */
 .reveal { opacity: 1; transform: translateY(0); transition: opacity 0.9s var(--ease-soft), transform 0.9s var(--ease-soft); }
 .reveal.will-animate { opacity: 0; transform: translateY(36px); }
@@ -99,7 +71,15 @@
   .hero-ledger { flex-wrap: wrap; gap: 1.25rem 1.5rem; }
   .hero-ledger-div { display: none; }
   .cf-row { grid-template-columns: 1fr; }
-  .admin-g2 { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
   .section { padding: 3.5rem 0; }
+}
+@media (max-width: 480px) {
+  .cert-grid { grid-template-columns: 1fr; }
+  .about-portrait-frame { right: -12px; bottom: -12px; }
+  .about-ribbon { right: 0.5rem; bottom: -1.25rem; padding: 1rem 1.25rem; }
+  .t-marquee::before, .t-marquee::after { width: 48px; }
+  .hero-badge { padding: 0.9rem 1.1rem; gap: 10px; }
+  .calc-terms { gap: 6px; }
+  .calc-term-btn { padding: 9px 2px; }
 }
