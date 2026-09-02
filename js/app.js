@@ -4,23 +4,10 @@
 (function () {
   'use strict';
 
-  var LS_KEY = 'smld_v2_data';
-  var ADMIN_PASSWORD = 'maxwell00';
   var CALENDLY_BASE = 'https://calendly.com/debraeldinrealtor/30min';
   var FORMSPREE_URL = 'https://formspree.io/f/xpqeaarv';
 
-  // ── Load data: localStorage override wins over the shipped data.js ──
-  function loadData() {
-    try {
-      var saved = localStorage.getItem(LS_KEY);
-      if (saved) return JSON.parse(saved);
-    } catch (e) {}
-    return JSON.parse(JSON.stringify(SITE_DATA)); // deep clone default
-  }
-  function saveData(data) {
-    try { localStorage.setItem(LS_KEY, JSON.stringify(data)); } catch (e) {}
-  }
-  var DATA = loadData();
+  var DATA = SITE_DATA;
 
   // ═══════════════════════════════════════════════════════════
   // NAV
@@ -395,95 +382,6 @@
       });
     });
   })();
-
-  // ═══════════════════════════════════════════════════════════
-  // ADMIN PANELS (listings) — password gate + CRUD + export
-  // ═══════════════════════════════════════════════════════════
-  window.adminOpen = function () {
-    var overlay = document.getElementById('adminOverlay');
-    overlay.classList.add('open');
-    document.getElementById('adminGate').style.display = 'block';
-    document.getElementById('adminMain').style.display = 'none';
-    document.getElementById('adminPassInput').value = '';
-  };
-  window.adminClose = function () { document.getElementById('adminOverlay').classList.remove('open'); };
-  window.adminCheckPassword = function () {
-    var val = document.getElementById('adminPassInput').value;
-    if (val === ADMIN_PASSWORD) {
-      document.getElementById('adminGate').style.display = 'none';
-      document.getElementById('adminMain').style.display = 'block';
-      renderAdminList();
-    } else {
-      document.getElementById('adminPassError').style.display = 'block';
-    }
-  };
-
-  function renderAdminList() {
-    var wrap = document.getElementById('adminListWrap');
-    wrap.innerHTML = '';
-    ['homes', 'lots'].forEach(function (type) {
-      DATA[type].forEach(function (l, idx) {
-        var row = document.createElement('div');
-        row.className = 'admin-list-item';
-        row.innerHTML = '<div class="admin-list-item-info"><strong>' + l.address + '</strong><br><span style="color:var(--taupe);font-size:0.78rem">' + l.price + ' &middot; ' + (l.badge || 'Active') + '</span></div>';
-        var actions = document.createElement('div');
-        actions.className = 'admin-list-item-actions';
-        var delBtn = document.createElement('button');
-        delBtn.className = 'admin-icon-btn';
-        delBtn.innerHTML = '&#10005;';
-        delBtn.onclick = function () {
-          if (confirm('Remove this listing?')) {
-            DATA[type].splice(idx, 1);
-            saveData(DATA);
-            renderAdminList();
-            renderListings(type);
-          }
-        };
-        actions.appendChild(delBtn);
-        row.appendChild(actions);
-        wrap.appendChild(row);
-      });
-    });
-  }
-
-  window.adminAddListing = function () {
-    var type = document.getElementById('adminNewType').value;
-    var l = {
-      price: document.getElementById('adminNewPrice').value,
-      address: document.getElementById('adminNewAddress').value,
-      beds: document.getElementById('adminNewBeds').value,
-      baths: document.getElementById('adminNewBaths').value,
-      sqft: document.getElementById('adminNewSqft').value,
-      badge: document.getElementById('adminNewBadge').value || 'Active',
-      photo: document.getElementById('adminNewPhoto').value,
-      url: document.getElementById('adminNewUrl').value,
-      notes: ''
-    };
-    if (!l.address || !l.price) { alert('Address and price are required.'); return; }
-    DATA[type].unshift(l);
-    saveData(DATA);
-    renderAdminList();
-    renderListings(type);
-    ['adminNewPrice','adminNewAddress','adminNewBeds','adminNewBaths','adminNewSqft','adminNewPhoto','adminNewUrl'].forEach(function(id){
-      document.getElementById(id).value = '';
-    });
-  };
-
-  window.adminExport = function () {
-    var out = "// ═══════════════════════════════════════════════════════════════\n" +
-      "// SITE DATA — updated via admin panel export.\n" +
-      "// Replace js/data.js in your repo with this file and push to GitHub.\n" +
-      "// ═══════════════════════════════════════════════════════════════\n\n" +
-      "const SITE_DATA = " + JSON.stringify(DATA, null, 2) + ";\n";
-    var blob = new Blob([out], { type: 'text/javascript' });
-    var a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'data.js';
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(function () { document.body.removeChild(a); }, 80);
-    adminClose();
-  };
 
   // ═══════════════════════════════════════════════════════════
   // INIT
