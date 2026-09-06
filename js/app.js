@@ -26,20 +26,31 @@
       var opening = !navDrawer.classList.contains('open');
       navToggle.classList.toggle('open', opening);
       navDrawer.classList.toggle('open', opening);
+      navDrawer.inert = !opening;
+      navToggle.setAttribute('aria-expanded', String(opening));
       document.body.style.overflow = opening ? 'hidden' : '';
     });
     navDrawer.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
         navToggle.classList.remove('open');
         navDrawer.classList.remove('open');
+        navDrawer.inert = true;
+        navToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && navDrawer.classList.contains('open')) {
+        navToggle.click();
+        navToggle.focus();
+      }
     });
   }
 
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
-      var target = document.querySelector(a.getAttribute('href'));
+      var href = a.getAttribute('href');
+      var target = href.length > 1 ? document.getElementById(href.slice(1)) : null;
       if (target) {
         e.preventDefault();
         window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 76, behavior: 'smooth' });
@@ -47,6 +58,27 @@
     });
   });
   if (toTop) toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  // Keep the poster on small screens and reduced-motion connections; offer playback explicitly.
+  (function () {
+    var video = document.querySelector('.hero-visual video');
+    var control = document.getElementById('videoToggle');
+    if (!video || !control) return;
+    function play() {
+      var source = video.querySelector('source');
+      if (!source.getAttribute('src')) { source.src = source.dataset.src; video.load(); }
+      video.play().catch(function () { control.textContent = 'Play scenery'; });
+    }
+    video.addEventListener('play', function () { control.textContent = 'Pause scenery'; control.setAttribute('aria-pressed', 'true'); });
+    video.addEventListener('pause', function () { control.textContent = 'Play scenery'; control.setAttribute('aria-pressed', 'false'); });
+    control.addEventListener('click', function () { if (video.paused) play(); else video.pause(); });
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
+        window.matchMedia('(min-width: 1081px)').matches &&
+        !(navigator.connection && navigator.connection.saveData)) {
+      if (document.readyState === 'complete') play();
+      else window.addEventListener('load', play, { once: true });
+    }
+  })();
 
   // ═══════════════════════════════════════════════════════════
   // HERO PARALLAX — responds to scroll only, respects reduced motion
@@ -184,12 +216,12 @@
     body.appendChild(price);
     body.appendChild(addr);
 
-    if (!isLot && (l.beds || l.baths || l.sqft)) {
+    if (l.beds || l.baths || l.sqft) {
       var meta = document.createElement('div');
       meta.className = 'card-meta';
       if (l.beds) meta.innerHTML += '<span class="card-meta-item">' + l.beds + ' bd</span>';
       if (l.baths) meta.innerHTML += '<span class="card-meta-item">' + l.baths + ' ba</span>';
-      if (l.sqft) meta.innerHTML += '<span class="card-meta-item">' + l.sqft + ' sqft</span>';
+      if (l.sqft) meta.innerHTML += '<span class="card-meta-item">' + l.sqft + (isLot ? '' : ' sqft') + '</span>';
       body.appendChild(meta);
     }
     card.appendChild(body);
@@ -197,7 +229,7 @@
     var footer = document.createElement('div');
     footer.className = 'card-footer';
     var agent = document.createElement('span');
-    agent.style.cssText = 'font-size:0.68rem;color:var(--sage);font-weight:300';
+    agent.style.cssText = 'font-size:0.8rem;color:var(--forest-mid);font-weight:400';
     agent.textContent = 'Debra Eldin';
     footer.appendChild(agent);
     if (!l.badge || l.badge.toLowerCase() !== 'sold') {
@@ -211,36 +243,46 @@
     }
     card.appendChild(footer);
 
-    if (l.url) card.addEventListener('click', function () { window.open(l.url, '_blank'); });
+    if (l.url) {
+      var detail = document.createElement('a');
+      detail.href = l.url; detail.target = '_blank'; detail.rel = 'noopener';
+      detail.className = 'card-detail-link';
+      detail.setAttribute('aria-label', 'View details for ' + l.address + ' (opens in a new tab)');
+      detail.textContent = l.address;
+      addr.textContent = ''; addr.appendChild(detail);
+    }
     return card;
   }
 
   function renderListings(type) {
-    var grid = document.getElementById(type === 'lots' ? 'lotsGrid' : 'homesGrid');
-    var empty = document.getElementById(type === 'lots' ? 'lotsEmpty' : 'homesEmpty');
+    var grid = document.getElementById(type + 'Grid');
+    var empty = document.getElementById(type + 'Empty');
     if (!grid) return;
-    var list = DATA[type] || [];
+    var list = type === 'sold' ? DATA.homes.concat(DATA.lots).filter(function (l) { return (l.badge || '').toLowerCase() === 'sold'; }) :
+      (DATA[type] || []).filter(function (l) { return (l.badge || '').toLowerCase() !== 'sold'; });
+    if (grid.dataset.limit) list = list.slice(0, Number(grid.dataset.limit));
     if (!list.length) {
       grid.style.display = 'none';
-      if (empty) empty.style.display = 'block';
+      if (empty) { empty.hidden = false; empty.style.display = 'block'; }
       return;
     }
     grid.style.display = 'grid';
-    if (empty) empty.style.display = 'none';
+    if (empty) { empty.hidden = true; empty.style.display = 'none'; }
     grid.innerHTML = '';
-    list.forEach(function (l, i) { grid.appendChild(makeListingCard(l, type, i)); });
+    list.forEach(function (l, i) { grid.appendChild(makeListingCard(l, DATA.lots.indexOf(l) >= 0 ? 'lots' : 'homes', i)); });
     observeReveals(grid);
   }
   window.renderListings = renderListings;
 
   function switchTab(type) {
-    document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('active'); });
+    document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-pressed', 'false'); });
     document.getElementById('tab-' + type).classList.add('active');
-    document.getElementById('homesGrid').style.display = type === 'homes' ? 'grid' : 'none';
-    document.getElementById('lotsGrid').style.display = type === 'lots' ? 'grid' : 'none';
+    document.getElementById('tab-' + type).setAttribute('aria-pressed', 'true');
+    document.getElementById('homesGrid').hidden = type !== 'homes';
+    document.getElementById('lotsGrid').hidden = type !== 'lots';
     var he = document.getElementById('homesEmpty'), le = document.getElementById('lotsEmpty');
-    if (he) he.style.display = (type === 'homes' && !DATA.homes.length) ? 'block' : 'none';
-    if (le) le.style.display = (type === 'lots' && !DATA.lots.length) ? 'block' : 'none';
+    if (he) { he.hidden = type !== 'homes' || document.getElementById('homesGrid').childElementCount > 0; he.style.display = he.hidden ? 'none' : 'block'; }
+    if (le) { le.hidden = type !== 'lots' || document.getElementById('lotsGrid').childElementCount > 0; le.style.display = le.hidden ? 'none' : 'block'; }
   }
   window.switchTab = switchTab;
 
@@ -361,9 +403,24 @@
   (function () {
     var form = document.getElementById('contactForm');
     if (!form) return;
+    var interest = form.elements.interest;
+    var address = form.elements.property_address;
+    function updateInquiry() {
+      var valuation = interest.value === 'Home valuation';
+      document.getElementById('valuationAddress').hidden = !valuation;
+      address.disabled = !valuation; address.required = valuation;
+    }
+    interest.addEventListener('change', updateInquiry);
+    document.querySelectorAll('[data-inquiry="valuation"]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        interest.value = 'Home valuation'; updateInquiry();
+        form.elements.name.focus({ preventScroll: true });
+      });
+    });
+    updateInquiry();
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (form.cfHoney && form.cfHoney.value) return; // honeypot
+      if (form.elements.cfHoney && form.elements.cfHoney.value) return;
       var btn = form.querySelector('.cf-submit');
       var originalText = btn.textContent;
       btn.textContent = 'Sending...';
@@ -374,10 +431,12 @@
         body: new FormData(form)
       }).then(function (res) {
         if (res.ok) {
-          form.innerHTML = '<div style="text-align:center;padding:2rem 0"><h3 style="font-family:var(--display);margin-bottom:0.75rem">Message sent</h3><p style="color:var(--ink-70)">Debra will be in touch soon. Thank you for reaching out.</p></div>';
+          form.reset(); updateInquiry();
+          document.getElementById('formStatus').textContent = 'Message sent. Debra will be in touch soon. Thank you for reaching out.';
+          btn.textContent = originalText; btn.disabled = false;
         } else { throw new Error('failed'); }
       }).catch(function () {
-        alert('Something went wrong. Please email Debra directly at debraeldinrealtor@gmail.com');
+        document.getElementById('formStatus').textContent = 'Your message could not be sent. Please try again or email debraeldinrealtor@gmail.com.';
         btn.textContent = originalText; btn.disabled = false;
       });
     });
@@ -388,4 +447,6 @@
   // ═══════════════════════════════════════════════════════════
   renderListings('homes');
   renderListings('lots');
+  renderListings('sold');
+  if (document.getElementById('tab-homes')) switchTab('homes');
 })();

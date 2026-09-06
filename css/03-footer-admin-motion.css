@@ -1,4 +1,33 @@
 /* ── FOOTER ── */
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--clay-light); outline-offset: 5px; }
+.nav::before { background: rgba(21,19,15,0.8); }
+.nav-links { gap: clamp(1rem, 2.5vw, 2.5rem); }
+.nav-links a { font-size: 0.76rem; color: var(--paper); letter-spacing: 0.08em; }
+.card { position: relative; }
+.card-addr { font-size: 0.9rem; font-weight: 400; color: var(--forest-mid); }
+.card-detail-link::after { content: ''; position: absolute; inset: 0; }
+.card-footer a { position: relative; z-index: 1; }
+.card-meta { font-size: 0.82rem; color: #665d4f; flex-wrap: wrap; }
+.card:focus-within { border-top-color: var(--brass); box-shadow: var(--shadow-md); }
+.tab, .calc-label, .calc-term-btn { font-size: 0.82rem; color: #665d4f; }
+.about-body p, .calc-intro-item p { font-weight: 400; }
+.calc-result-sub { color: rgba(250,246,237,0.8); font-size: 0.82rem; margin-top: 12px; }
+.calc-breakdown-lbl { color: var(--forest-mid); }
+.calc-card { min-width: 0; }
+.calc-breakdown { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.calc-breakdown-item { min-width: 0; padding: 0.9rem 0.4rem; }
+.calc-breakdown-val, .calc-breakdown-lbl { display: block; overflow-wrap: anywhere; }
+.calc-breakdown-val { font-size: clamp(0.85rem, 2.5vw, 1rem); }
+.listing-actions { margin-top: 2rem; text-align: center; }
+.listing-intro { margin: 1.25rem 0 2rem; max-width: 650px; }
+.property-page main { padding-top: 82px; }
+.video-control { position: absolute; right: 1.5rem; top: 100px; z-index: 5; background: rgba(21,19,15,0.85); color: var(--paper); padding: 0.75rem 1rem; border: 1px solid var(--brass-hair); border-radius: 3px; font-size: 0.8rem; }
+#formStatus:not(:empty) { margin-bottom: 1.25rem; padding: 1rem; border: 1px solid var(--brass-hair); }
+.cf { color: var(--obsidian); }
+.cf-input, .cf-select, .cf-textarea { font-size: 1rem; color: var(--obsidian); }
+.cf-field label { font-size: 0.78rem; color: #665d4f; }
+@media (max-width: 1080px) { .video-control, .hero-visual video { display: none; } }
 .footer { background: var(--obsidian); border-top: 1px solid var(--brass-hair); padding: 0 0 2.5rem; }
 .footer-topo { width: 100%; height: 60px; opacity: 0.32; filter: invert(1) brightness(1.4); margin-bottom: 3.5rem; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 3rem; margin-bottom: 3rem; }

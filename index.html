@@ -5,9 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smoky Mountain Living with Debra | Debra Eldin, Realtor — Mountain Home Realty</title>
 <meta name="description" content="Licensed Realtor serving Sevierville, Gatlinburg, Pigeon Forge, and the greater East Tennessee region. Specializing in residential homes, cabins, STR investment properties, relocations, and land.">
-<link rel="canonical" href="https://smokymountainlivingwithdebra.com/">
+<link rel="canonical" href="https://www.debraeldinrealtor.com/">
 <meta property="og:title" content="Smoky Mountain Living with Debra">
 <meta property="og:description" content="Licensed Realtor serving the Smoky Mountains region of East Tennessee — homes, cabins, STR investments, and land.">
+<meta property="og:url" content="https://www.debraeldinrealtor.com/">
+<meta property="og:image" content="https://www.debraeldinrealtor.com/assets/debra-portrait.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -53,9 +55,9 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Get in Touch</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navDrawer"><span></span><span></span><span></span></button>
   </div>
-  <div class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer" id="navDrawer" inert>
     <a href="#about">About</a>
     <a href="#listings">Listings</a>
     <a href="#calculator">Calculator</a>
@@ -72,7 +74,7 @@
     <div class="hero-topo" style="background-image:url('assets/topo.svg');background-size:cover" aria-hidden="true"></div>
     <span class="hero-kicker">Mountain Home Realty, East Tennessee</span>
     <h1 class="hero-h1">Turning Smoky<br>Mountain Dreams<br><em>Into Reality</em></h1>
-    <p class="hero-sub">From cozy cabins to sprawling mountain estates — expert guidance through every step of buying or selling in the Smokies.</p>
+    <p class="hero-sub">Buying from out of state, selling a home, or finding your mountain retreat? Get local insight, responsive communication, and personal guidance from Debra.</p>
     <div class="hero-actions">
       <a href="#listings" class="btn btn-clay">Browse Listings</a>
       <a href="#contact" class="btn btn-ghost">Talk to Debra</a>
@@ -86,14 +88,15 @@
     </div>
   </div>
   <div class="hero-visual">
-    <video autoplay muted loop playsinline preload="auto" poster="https://images.squarespace-cdn.com/content/v1/69a344c6bfe7aa136487d772/3cb6b16c-388c-440a-8906-25395cc3e262/IMG_1965.JPEG">
-      <source src="272183_medium.mp4" type="video/mp4">
+    <video muted loop playsinline preload="none" aria-label="Smoky Mountain scenery" poster="assets/mountain-poster.jpg">
+      <source data-src="assets/mountain-scenery.mp4" type="video/mp4">
     </video>
-    <div class="hero-photo-bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/69a344c6bfe7aa136487d772/3cb6b16c-388c-440a-8906-25395cc3e262/IMG_1965.JPEG')"></div>
+    <div class="hero-photo-bg" style="background-image:url('assets/mountain-poster.jpg')"></div>
     <div class="hero-visual-overlay"></div>
+    <button type="button" class="video-control" id="videoToggle" aria-pressed="false">Play scenery</button>
     <div class="hero-badge">
       <span class="hero-badge-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D9AE6C" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg></span>
-      <span><span class="hero-badge-t">MLS Certified</span><br><span class="hero-badge-s">Full-service brokerage</span></span>
+      <span><span class="hero-badge-t">Local guidance</span><br><span class="hero-badge-s">Homes, cabins &amp; land</span></span>
     </div>
   </div>
   <div class="hero-scroll-cue"><span>Scroll</span><div class="hero-scroll-line"></div></div>
@@ -103,18 +106,18 @@
 <section class="section section-paper" id="about">
   <div class="wrap">
     <div class="about-grid">
-      <div class="about-portrait-wrap reveal will-animate">
+      <div class="about-portrait-wrap reveal">
         <img class="about-portrait" src="assets/debra-portrait.jpg" alt="Debra Eldin, Realtor">
         <div class="about-portrait-frame"></div>
         <div class="about-ribbon"><span class="about-ribbon-n">32</span><span class="about-ribbon-l">years in East TN</span></div>
       </div>
-      <div class="reveal will-animate">
+      <div class="reveal">
         <span class="kicker">Your Smoky Mountain expert</span>
         <h2 class="h-section">Meet Debra Eldin</h2>
         <div class="rule"></div>
         <div class="about-body">
-          <p>For over three decades, Debra Eldin has helped families, investors, and second-home buyers find their place in the Smoky Mountains. From Sevierville to Gatlinburg to Pigeon Forge, she brings deep local knowledge and a genuinely personal touch to every transaction.</p>
-          <p>Whether you're searching for a full-time residence, a short-term rental investment, or your family's mountain retreat, Debra's approach is the same: listen first, guide honestly, and never stop advocating for your best interest.</p>
+          <p>With more than three decades of life in East Tennessee, Debra Eldin brings a local perspective to helping families, investors, and second-home buyers find their place in the Smoky Mountains. From Sevierville to Gatlinburg to Pigeon Forge, she brings deep local knowledge and a genuinely personal touch to every transaction.</p>
+          <p>Buying from a distance? Debra helps you explore homes through video tours and keeps you informed along the way. Selling a home or navigating a land purchase? She takes time to work through the details, answer your questions, and advocate for your interests.</p>
         </div>
         <div class="about-cred-row">
           <span class="cred-tag">ABR Certified</span>
@@ -130,89 +133,33 @@
 <!-- ═══ LISTINGS ═══ -->
 <section class="section section-linen" id="listings">
   <div class="wrap">
-    <div class="section-head reveal will-animate">
+    <div class="section-head reveal">
       <div>
         <span class="kicker">Properties</span>
         <h2 class="h-section">Featured listings</h2>
       </div>
     </div>
-    <div class="tabs-row reveal will-animate" role="tablist">
-      <button class="tab active" id="tab-homes" onclick="switchTab('homes')">
+    <div class="tabs-row reveal" role="group" aria-label="Property category">
+      <button class="tab active" id="tab-homes" aria-pressed="true" aria-controls="homesGrid" onclick="switchTab('homes')">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
         Properties
       </button>
-      <button class="tab" id="tab-lots" onclick="switchTab('lots')">
+      <button class="tab" id="tab-lots" aria-pressed="false" aria-controls="lotsGrid" onclick="switchTab('lots')">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
         Lots &amp; Land
       </button>
     </div>
-    <div class="card-grid" id="homesGrid"></div>
-    <div class="card-grid" id="lotsGrid" style="display:none"></div>
+    <div class="card-grid" id="homesGrid" data-limit="6"></div>
+    <div class="card-grid" id="lotsGrid" data-limit="6" hidden></div>
+    <div class="listing-actions"><a href="pages/listings.html" class="btn btn-outline">View all properties</a></div>
     <p id="homesEmpty" style="display:none;text-align:center;color:var(--taupe);padding:3rem 0">No active properties right now — check back soon.</p>
     <p id="lotsEmpty" style="display:none;text-align:center;color:var(--taupe);padding:3rem 0">No active lots right now — check back soon.</p>
   </div>
 </section>
 
-<!-- ═══ CALCULATOR ═══ -->
-<section class="section section-paper" id="calculator">
-  <div class="wrap">
-    <div class="calc-grid">
-      <div class="reveal will-animate">
-        <span class="kicker">Plan your purchase</span>
-        <h2 class="h-section">Mortgage calculator</h2>
-        <div class="rule"></div>
-        <div class="calc-intro-item">
-          <span class="calc-intro-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
-          <div><h4>Estimate instantly</h4><p>See your estimated monthly payment update live as you adjust price, down payment, and rate.</p></div>
-        </div>
-        <div class="calc-intro-item">
-          <span class="calc-intro-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
-          <div><h4>No obligation</h4><p>This is a planning tool, not a loan application — reach out to Debra for personalized guidance.</p></div>
-        </div>
-      </div>
-      <div class="calc-card reveal will-animate">
-        <div class="calc-header">
-          <span class="calc-header-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D9AE6C" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2v16"/></svg></span>
-          <span style="font-family:var(--display);color:var(--paper);font-weight:600">Payment Estimator</span>
-        </div>
-        <div class="calc-body">
-          <div class="calc-row">
-            <div class="calc-row-head"><span class="calc-label">Home Price</span><span class="calc-val" id="calcPriceVal"></span></div>
-            <input type="range" class="calc-slider" id="calcPrice" min="100000" max="3000000" step="5000" value="550000">
-          </div>
-          <div class="calc-row">
-            <div class="calc-row-head"><span class="calc-label">Down Payment</span><span class="calc-val" id="calcDownVal"></span></div>
-            <input type="range" class="calc-slider" id="calcDown" min="0" max="50" step="1" value="20">
-          </div>
-          <div class="calc-row">
-            <div class="calc-row-head"><span class="calc-label">Interest Rate</span><span class="calc-val" id="calcRateVal"></span></div>
-            <input type="range" class="calc-slider" id="calcRate" min="3" max="9" step="0.05" value="6.5">
-            <div class="calc-terms">
-              <button class="calc-term-btn active" data-term="30">30 yr</button>
-              <button class="calc-term-btn" data-term="20">20 yr</button>
-              <button class="calc-term-btn" data-term="15">15 yr</button>
-              <button class="calc-term-btn" data-term="10">10 yr</button>
-            </div>
-          </div>
-          <div class="calc-result">
-            <div class="calc-result-label">Estimated Monthly Payment</div>
-            <div class="calc-result-amount" id="calcMonthly"></div>
-            <div class="calc-result-sub">Principal &amp; interest only</div>
-          </div>
-          <div class="calc-breakdown">
-            <div class="calc-breakdown-item"><span class="calc-breakdown-val" id="calcLoanAmt"></span><span class="calc-breakdown-lbl">Loan amount</span></div>
-            <div class="calc-breakdown-item"><span class="calc-breakdown-val" id="calcTotalPaid"></span><span class="calc-breakdown-lbl">Total paid</span></div>
-            <div class="calc-breakdown-item"><span class="calc-breakdown-val" id="calcTotalInt"></span><span class="calc-breakdown-lbl">Total interest</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══ TESTIMONIALS ═══ -->
 <section class="section section-dark" id="testimonials">
-  <div class="wrap reveal will-animate" style="margin-bottom:2rem">
+  <div class="wrap reveal" style="margin-bottom:2rem">
     <span class="kicker">Client reviews</span>
     <h2 class="h-section">What clients say</h2>
     <div class="rule"></div>
@@ -225,10 +172,67 @@
   </div>
 </section>
 
+<!-- ═══ CALCULATOR ═══ -->
+<section class="section section-paper" id="calculator">
+  <div class="wrap">
+    <div class="calc-grid">
+      <div class="reveal">
+        <span class="kicker">Plan your purchase</span>
+        <h2 class="h-section">Mortgage calculator</h2>
+        <div class="rule"></div>
+        <div class="calc-intro-item">
+          <span class="calc-intro-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+          <div><h4>Estimate instantly</h4><p>See your estimated monthly payment update live as you adjust price, down payment, and rate.</p></div>
+        </div>
+        <div class="calc-intro-item">
+          <span class="calc-intro-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <div><h4>No obligation</h4><p>This is a planning tool, not a loan application — reach out to Debra for personalized guidance.</p></div>
+        </div>
+      </div>
+      <div class="calc-card reveal">
+        <div class="calc-header">
+          <span class="calc-header-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D9AE6C" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2v16"/></svg></span>
+          <span style="font-family:var(--display);color:var(--paper);font-weight:600">Payment Estimator</span>
+        </div>
+        <div class="calc-body">
+          <div class="calc-row">
+            <div class="calc-row-head"><span class="calc-label">Home Price</span><span class="calc-val" id="calcPriceVal"></span></div>
+            <input type="range" class="calc-slider" id="calcPrice" aria-label="Home price" min="100000" max="3000000" step="5000" value="550000">
+          </div>
+          <div class="calc-row">
+            <div class="calc-row-head"><span class="calc-label">Down Payment</span><span class="calc-val" id="calcDownVal"></span></div>
+            <input type="range" class="calc-slider" id="calcDown" aria-label="Down payment percentage" min="0" max="50" step="1" value="20">
+          </div>
+          <div class="calc-row">
+            <div class="calc-row-head"><span class="calc-label">Interest Rate</span><span class="calc-val" id="calcRateVal"></span></div>
+            <input type="range" class="calc-slider" id="calcRate" aria-label="Annual interest rate" min="3" max="9" step="0.05" value="6.5">
+            <div class="calc-terms">
+              <button class="calc-term-btn active" data-term="30">30 yr</button>
+              <button class="calc-term-btn" data-term="20">20 yr</button>
+              <button class="calc-term-btn" data-term="15">15 yr</button>
+              <button class="calc-term-btn" data-term="10">10 yr</button>
+            </div>
+          </div>
+          <div class="calc-result">
+            <div class="calc-result-label">Estimated Monthly Payment</div>
+            <div class="calc-result-amount" id="calcMonthly"></div>
+            <div class="calc-result-sub">Principal &amp; interest only. Excludes taxes, insurance, HOA fees, and any mortgage insurance.</div>
+          </div>
+          <div class="calc-breakdown">
+            <div class="calc-breakdown-item"><span class="calc-breakdown-val" id="calcLoanAmt"></span><span class="calc-breakdown-lbl">Loan amount</span></div>
+            <div class="calc-breakdown-item"><span class="calc-breakdown-val" id="calcTotalPaid"></span><span class="calc-breakdown-lbl">Total paid</span></div>
+            <div class="calc-breakdown-item"><span class="calc-breakdown-val" id="calcTotalInt"></span><span class="calc-breakdown-lbl">Total interest</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ CERTS ═══ -->
 <section class="section section-linen" id="certs">
   <div class="wrap">
-    <div class="reveal will-animate" style="margin-bottom:2.5rem">
+    <div class="reveal" style="margin-bottom:2.5rem">
       <span class="kicker">Credentials &amp; memberships</span>
       <h2 class="h-section">Certified &amp; trusted</h2>
       <div class="rule"></div>
@@ -237,18 +241,25 @@
   </div>
 </section>
 
+<section class="section section-linen" id="recent-sales">
+  <div class="wrap"><div class="section-head"><div><span class="kicker">Closed transactions</span><h2 class="h-section">A few recent sales</h2></div></div>
+    <div class="card-grid" id="soldGrid" data-limit="3"></div>
+    <div class="listing-actions"><a class="btn btn-outline" href="pages/listings.html#recent-sales">See past sales</a></div>
+  </div>
+</section>
+
 <!-- ═══ RESOURCES ═══ -->
 <section class="section section-paper" id="resources">
   <div class="wrap">
-    <div class="reveal will-animate" style="text-align:center;margin-bottom:2.5rem">
+    <div class="reveal" style="text-align:center;margin-bottom:2.5rem">
       <span class="kicker">Free resources</span>
       <h2 class="h-section">Thinking about your next move?</h2>
     </div>
-    <div class="res-card reveal will-animate">
+    <div class="res-card reveal">
       <span class="res-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
       <h3 class="res-title">Free Home Valuation</h3>
       <p class="res-body">Curious what your property could sell for in today's market? Get a free, no-obligation valuation from Debra.</p>
-      <a href="#contact" class="btn btn-outline">Request a Valuation</a>
+      <a href="#contact" data-inquiry="valuation" class="btn btn-outline">Request a Valuation</a>
     </div>
   </div>
 </section>
@@ -257,7 +268,7 @@
 <section class="section section-forest" id="contact">
   <div class="wrap">
     <div class="contact-grid">
-      <div class="reveal will-animate">
+      <div class="reveal">
         <span class="kicker" style="color:var(--brass-light)">Get in touch</span>
         <h2 class="h-section" style="color:var(--paper)">Let's find your place in the Smokies</h2>
         <p style="color:rgba(250,246,237,0.65);margin:1.25rem 0 2rem;font-weight:300">Reach out any time — Debra typically responds within one business day.</p>
@@ -279,24 +290,27 @@
           </a>
         </div>
       </div>
-      <div class="cf reveal will-animate">
+      <div class="cf reveal">
         <form id="contactForm">
+          <p id="formStatus" role="status" aria-live="polite"></p>
           <input type="text" name="cfHoney" style="display:none" tabindex="-1" autocomplete="off">
           <div class="cf-row">
-            <div class="cf-field"><label>Name</label><input class="cf-input" name="name" required></div>
-            <div class="cf-field"><label>Phone</label><input class="cf-input" name="phone" type="tel"></div>
+            <div class="cf-field"><label for="cf-name">Name</label><input class="cf-input" id="cf-name" name="name" required></div>
+            <div class="cf-field"><label for="cf-phone">Phone</label><input class="cf-input" id="cf-phone" name="phone" type="tel"></div>
           </div>
-          <div class="cf-field"><label>Email</label><input class="cf-input" name="email" type="email" required></div>
+          <div class="cf-field"><label for="cf-email">Email</label><input class="cf-input" id="cf-email" name="email" type="email" required></div>
           <div class="cf-field">
-            <label>I'm interested in</label>
-            <select class="cf-select" name="interest">
+            <label for="cf-interest">I'm interested in</label>
+            <select class="cf-select" id="cf-interest" name="interest">
               <option>Buying a home</option>
+              <option>Home valuation</option>
               <option>Selling a home</option>
               <option>Land / lots</option>
               <option>Just browsing</option>
             </select>
           </div>
-          <div class="cf-field"><label>Message</label><textarea class="cf-textarea" name="message" required></textarea></div>
+          <div class="cf-field" id="valuationAddress" hidden><label for="cf-address">Property address</label><input class="cf-input" id="cf-address" name="property_address" autocomplete="street-address" disabled></div>
+          <div class="cf-field"><label for="cf-message">Message</label><textarea class="cf-textarea" id="cf-message" name="message" required></textarea></div>
           <button type="submit" class="btn btn-clay cf-submit">Send Message</button>
         </form>
       </div>
@@ -365,7 +379,7 @@
   var certGrid = document.getElementById('certGrid');
   SITE_DATA.certs.forEach(function(c, i) {
     var el = document.createElement('div');
-    el.className = 'cert-card reveal will-animate';
+    el.className = 'cert-card reveal';
     el.style.transitionDelay = ((i % 3) * 0.1) + 's';
     el.innerHTML = '<div class="cert-card-img"><img src="' + c.img + '" alt="' + c.alt + '" loading="lazy"></div>' +
       '<div class="cert-body"><p class="cert-name">' + c.name + '</p><span class="cert-abbr">' + c.abbr + '</span><p class="cert-desc">' + c.desc + '</p></div>';
