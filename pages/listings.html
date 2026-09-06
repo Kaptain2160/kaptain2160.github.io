@@ -1,157 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Listings | Smoky Mountain Living with Debra</title>
-  <meta name="description" content="Debra Eldin — Your trusted Smoky Mountain real estate expert in East Tennessee.">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-</head>
-<body>
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="../index.html" class="nav-brand">
-        <span class="nav-brand-main">Smoky Mountain Living</span>
-        <span class="nav-brand-sub">with Debra</span>
-      </a>
-      <div class="nav-links">
-        <a href="../index.html">Home</a>
-        <a href="listings.html">Listings</a>
-        <a href="resources.html">Resources</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Properties &amp; Recent Sales | Debra Eldin</title><meta name="description" content="Explore Debra Eldin's featured homes, cabins, land, and completed sales across East Tennessee.">
+<link rel="canonical" href="https://www.debraeldinrealtor.com/pages/listings.html">
+<link rel="icon" href="../assets/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Playfair+Display:ital,wght@0,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/00-tokens.css">
+<link rel="stylesheet" href="../css/01-nav-hero.css">
+<link rel="stylesheet" href="../css/02-sections.css">
+<link rel="stylesheet" href="../css/03-footer-admin-motion.css"></head><body class="property-page"><a href="#main" class="sr-only">Skip to content</a><nav class="nav" id="siteNav">
+  <div class="nav-bar">
+    <a href="../index.html#top" class="nav-brand">
+      <span class="nav-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9AE6C" stroke-width="1.4"><path d="M3 18l5-8 4 5 3-6 6 9H3z"/></svg></span>
+      <span class="nav-brand-text">
+        <span class="nav-brand-main">Debra Eldin</span>
+        <span class="nav-brand-sub">Mountain Home Realty</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#listings">Listings</a></li>
+      <li><a href="../index.html#calculator">Calculator</a></li>
+      <li><a href="../index.html#testimonials">Reviews</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <a href="../index.html#contact" class="nav-cta">Get in Touch</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navDrawer"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-drawer" id="navDrawer" inert>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#listings">Listings</a>
+    <a href="../index.html#calculator">Calculator</a>
+    <a href="../index.html#testimonials">Reviews</a>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+</nav>
+<main id="main"><section class="section section-linen"><div class="wrap">
+<span class="kicker">Homes, cabins &amp; land</span><h1 class="h-section">Find your place in East Tennessee</h1>
+<p class="listing-intro">Explore Debra's featured properties. Contact her to confirm availability, ask a question, or arrange a showing.</p>
+<div class="tabs-row" role="group" aria-label="Property category"><button class="tab active" id="tab-homes" aria-pressed="true" aria-controls="homesGrid" onclick="switchTab('homes')">Properties</button><button class="tab" id="tab-lots" aria-pressed="false" aria-controls="lotsGrid" onclick="switchTab('lots')">Lots &amp; Land</button></div>
+<div class="card-grid" id="homesGrid"></div><div class="card-grid" id="lotsGrid" hidden></div><p id="homesEmpty" hidden>No active homes right now. Contact Debra for help with your search.</p><p id="lotsEmpty" hidden>No active land listings right now. Contact Debra for help with your search.</p>
+</div></section><section class="section section-paper" id="recent-sales"><div class="wrap"><div class="section-head"><h2 class="h-section">Recent sales</h2></div><div class="card-grid" id="soldGrid"></div></div></section>
+<section class="section section-forest"><div class="wrap"><h2 class="h-section">Have a property in mind?</h2><p class="listing-intro">Let's talk about your next move.</p><a class="btn btn-clay" href="../index.html#contact">Talk to Debra</a></div></section></main>
+<footer class="footer">
+  <div class="topo-divider footer-topo" style="background-image:url('../assets/topo.svg')" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="nav-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9AE6C" stroke-width="1.4"><path d="M3 18l5-8 4 5 3-6 6 9H3z"/></svg></span>
+          <span class="nav-brand-text"><span class="nav-brand-main">Debra Eldin</span><span class="nav-brand-sub">Mountain Home Realty</span></span>
+        </div>
+        <p class="footer-tagline">Turning Smoky Mountain dreams into reality — serving Sevierville, Gatlinburg, Pigeon Forge, and the greater East Tennessee region.</p>
       </div>
-      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    </div>
-    <div class="nav-drawer">
-      <a href="../index.html">Home</a>
-      <a href="listings.html">Listings</a>
-      <a href="resources.html">Resources</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </nav>
-  <main id="main-content">
-
-    <section class="page-hero" aria-label="Listings hero">
-      <div class="container">
-        <span class="section-tag">Properties</span>
-        <h1>Discover Your Perfect<br>Smoky Mountain Home</h1>
-        <p>Browse current listings in the Maryville, Alcoa, Sevierville, and Gatlinburg areas. Contact Debra for showings or more details on any property.</p>
+      <div>
+        <div class="footer-heading">Explore</div>
+        <ul class="footer-links">
+          <li><a href="../index.html#about">About Debra</a></li>
+          <li><a href="../index.html#listings">Listings</a></li>
+          <li><a href="../index.html#calculator">Calculator</a></li>
+          <li><a href="../index.html#testimonials">Reviews</a></li>
+        </ul>
       </div>
-    </section>
-
-    <section class="section section-cream">
-      <div class="container">
-        <div class="listings-grid">
-
-          <article class="listing-card reveal reveal-d1">
-            <div class="listing-img-wrap">
-              <div class="listing-placeholder"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-              <span class="listing-badge">Active</span>
-            </div>
-            <div class="listing-body">
-              <p class="listing-price">Contact for price</p>
-              <p class="listing-address">686 Stockton Drive, Maryville, TN</p>
-              <div class="listing-meta">
-                <span class="listing-meta-item">Contact Debra for full details</span>
-              </div>
-            </div>
-            <div class="listing-footer">
-              <span class="listing-agent">Listed by Debra Eldin</span>
-              <a href="contact.html" class="listing-link">Schedule showing <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-            </div>
-          </article>
-
-          <article class="listing-card reveal reveal-d2">
-            <div class="listing-img-wrap">
-              <div class="listing-placeholder"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-              <span class="listing-badge gold">New</span>
-            </div>
-            <div class="listing-body">
-              <p class="listing-price">Contact for price</p>
-              <p class="listing-address">1854 Fantasy Way, Sevierville, TN</p>
-              <div class="listing-meta">
-                <span class="listing-meta-item">Contact Debra for full details</span>
-              </div>
-            </div>
-            <div class="listing-footer">
-              <span class="listing-agent">Listed by Debra Eldin</span>
-              <a href="contact.html" class="listing-link">Schedule showing <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-            </div>
-          </article>
-
-          <article class="listing-card reveal reveal-d3">
-            <div class="listing-img-wrap">
-              <div class="listing-placeholder"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-              <span class="listing-badge">Coming soon</span>
-            </div>
-            <div class="listing-body">
-              <p class="listing-price">Coming soon</p>
-              <p class="listing-address">Smoky Mountain Region, TN</p>
-              <div class="listing-meta">
-                <span class="listing-meta-item">New listing &mdash; contact Debra to get notified</span>
-              </div>
-            </div>
-            <div class="listing-footer">
-              <span class="listing-agent">Listed by Debra Eldin</span>
-              <a href="contact.html" class="listing-link">Get notified <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-            </div>
-          </article>
-
-        </div>
-
-        <div class="section-header reveal" style="margin-top:4rem;max-width:560px">
-          <span class="section-tag">Looking for something specific?</span>
-          <span class="gold-bar"></span>
-          <h2>Don&rsquo;t see what you&rsquo;re looking for?</h2>
-          <p>The best homes often sell before they&rsquo;re widely listed. Tell Debra what you&rsquo;re searching for and she&rsquo;ll find it for you &mdash; sometimes before it even hits the market.</p>
-          <div style="margin-top:2rem">
-            <a href="contact.html" class="btn btn-pine"><span>Tell Debra what you need</span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </div>
+      <div>
+        <div class="footer-heading">Service Areas</div>
+        <ul class="footer-links">
+          <li>Sevierville</li>
+          <li>Gatlinburg</li>
+          <li>Pigeon Forge</li>
+          <li>Greater East Tennessee</li>
+        </ul>
       </div>
-    </section>
-
-  </main>
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <p class="footer-brand-name">Smoky Mountain Living</p>
-          <p>Helping families find their perfect home in East Tennessee since 2012. Personal service, deep local knowledge, exceptional results.</p>
-          <div class="footer-social">
-            <a href="https://www.instagram.com/debraeldinrealtor" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
-            <a href="https://www.facebook.com/debra.eldin.realtor.2024" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          </div>
-        </div>
-        <div>
-          <p class="footer-heading">Quick links</p>
-          <nav class="footer-links" aria-label="Footer navigation">
-            <a href="../index.html">Home</a>
-            <a href="listings.html">Listings</a>
-            <a href="resources.html">Resources</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-          </nav>
-        </div>
-        <div>
-          <p class="footer-heading">Get in touch</p>
-          <div class="footer-contact-col">
-            <div class="footer-contact-row"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 2.11 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(865) 806-7541</span></div>
-            <div class="footer-contact-row"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>debraeldinrealtor@gmail.com</span></div>
-            <div class="footer-contact-row"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 2.11 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Office: (865) 366-4600</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2026 Smoky Mountain Living with Debra &mdash; Debra Eldin, Realtor.</p>
-        <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Fair Housing</a></div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:8658067541">(865) 806-7541</a></li>
+          <li><a href="mailto:debraeldinrealtor@gmail.com">debraeldinrealtor@gmail.com</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
-  <script src="../js/main.js"></script>
-</body>
-</html>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; <span id="yearNow"></span> Debra Eldin, Mountain Home Realty. All rights reserved.<br><span style="opacity:0.7">Each office independently owned and operated. All information deemed reliable but not guaranteed.</span></p>
+      <div class="footer-logos">
+        <img src="../assets/mhr-logo-white.png" alt="Mountain Home Realty">
+        <img src="../assets/eho-logo.webp" alt="Equal Housing Opportunity" style="filter:invert(1)">
+      </div>
+    </div>
+  </div>
+</footer><script src="../js/data.js"></script><script src="../js/app.js"></script><script>document.getElementById('yearNow').textContent = new Date().getFullYear();</script></body></html>
