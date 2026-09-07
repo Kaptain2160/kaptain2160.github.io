@@ -170,6 +170,7 @@
     var b = badge.toLowerCase();
     if (b === 'new') return 'badge-new';
     if (b === 'sold') return 'badge-sold';
+    if (b === 'under contract' || b.indexOf('pending') === 0) return 'badge-pending';
     return 'badge-active';
   }
 
@@ -196,6 +197,7 @@
     badge.textContent = l.badge || 'Active';
     imgWrap.appendChild(badge);
 
+    if (l.url) {
     var hoverCta = document.createElement('div');
     hoverCta.className = 'card-hover-cta';
     var hoverLabel = document.createElement('span');
@@ -203,6 +205,7 @@
     hoverLabel.textContent = 'View Details';
     hoverCta.appendChild(hoverLabel);
     imgWrap.appendChild(hoverCta);
+    }
     card.appendChild(imgWrap);
 
     var body = document.createElement('div');
@@ -215,6 +218,19 @@
     addr.textContent = l.address;
     body.appendChild(price);
     body.appendChild(addr);
+    if (!l.url && l.notes && listingStatus(l) !== 'sold') {
+      var description = document.createElement('p');
+      description.className = 'card-status-note';
+      description.textContent = l.notes;
+      body.appendChild(description);
+    }
+
+    if (l.mls) {
+      var mls = document.createElement('p');
+      mls.className = 'card-status-note';
+      mls.textContent = 'MLS # ' + l.mls;
+      body.appendChild(mls);
+    }
 
     if (l.beds || l.baths || l.sqft) {
       var meta = document.createElement('div');
@@ -224,6 +240,16 @@
       if (l.sqft) meta.innerHTML += '<span class="card-meta-item">' + l.sqft + (isLot ? '' : ' sqft') + '</span>';
       body.appendChild(meta);
     }
+    if (l.soldDate || l.mlsStatus || l.representation) {
+      var statusNote = document.createElement('p');
+      statusNote.className = 'card-status-note';
+      var statusParts = [];
+      if (l.soldDate) statusParts.push('Sold ' + new Date(l.soldDate + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }));
+      if (l.mlsStatus) statusParts.push(l.mlsStatus);
+      if (l.representation) statusParts.push(l.representation);
+      statusNote.textContent = statusParts.join(' · ');
+      body.appendChild(statusNote);
+    }
     card.appendChild(body);
 
     var footer = document.createElement('div');
@@ -232,10 +258,10 @@
     agent.style.cssText = 'font-size:0.8rem;color:var(--forest-mid);font-weight:400';
     agent.textContent = 'Debra Eldin';
     footer.appendChild(agent);
-    if (!l.badge || l.badge.toLowerCase() !== 'sold') {
+    if (listingStatus(l) === 'active' || (listingStatus(l) === 'pending' && l.showingsAllowed)) {
       var book = document.createElement('a');
       book.className = 'btn btn-outline btn-sm';
-      book.textContent = 'Book a Showing';
+      book.textContent = listingStatus(l) === 'pending' ? 'Ask About Showings' : 'Book a Showing';
       book.href = CALENDLY_BASE + '?a1=' + encodeURIComponent(l.address);
       book.target = '_blank'; book.rel = 'noopener';
       book.onclick = function (e) { e.stopPropagation(); };
@@ -254,12 +280,22 @@
     return card;
   }
 
+  function listingStatus(l) {
+    var badge = (l.badge || 'active').toLowerCase();
+    if (badge === 'sold') return 'sold';
+    if (badge === 'under contract' || badge.indexOf('pending') === 0) return 'pending';
+    return badge === 'active' || badge === 'new' ? 'active' : 'off-market';
+  }
+
   function renderListings(type) {
     var grid = document.getElementById(type + 'Grid');
     var empty = document.getElementById(type + 'Empty');
     if (!grid) return;
-    var list = type === 'sold' ? DATA.homes.concat(DATA.lots).filter(function (l) { return (l.badge || '').toLowerCase() === 'sold'; }) :
-      (DATA[type] || []).filter(function (l) { return (l.badge || '').toLowerCase() !== 'sold'; });
+    var grouped = type === 'sold' || type === 'pending';
+    var list = (grouped ? DATA.homes.concat(DATA.lots) : DATA[type] || []).filter(function (l) {
+      return listingStatus(l) === (grouped ? type : 'active');
+    });
+    if (type === 'sold') list.sort(function (a, b) { return (b.soldDate || '').localeCompare(a.soldDate || ''); });
     if (grid.dataset.limit) list = list.slice(0, Number(grid.dataset.limit));
     if (!list.length) {
       grid.style.display = 'none';
@@ -448,5 +484,6 @@
   renderListings('homes');
   renderListings('lots');
   renderListings('sold');
+  renderListings('pending');
   if (document.getElementById('tab-homes')) switchTab('homes');
 })();
