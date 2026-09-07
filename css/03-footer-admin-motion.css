@@ -21,6 +21,8 @@
 .calc-breakdown-val { font-size: clamp(0.85rem, 2.5vw, 1rem); }
 .listing-actions { margin-top: 2rem; text-align: center; }
 .listing-intro { margin: 1.25rem 0 2rem; max-width: 650px; }
+.badge-pending { background: #70401e; color: #fff8ec; }
+.card-status-note { margin: .55rem 0 0; font-size: .78rem; line-height: 1.55; color: var(--forest-mid); }
 .property-page main { padding-top: 82px; }
 .video-control { position: absolute; right: 1.5rem; top: 100px; z-index: 5; background: rgba(21,19,15,0.85); color: var(--paper); padding: 0.75rem 1rem; border: 1px solid var(--brass-hair); border-radius: 3px; font-size: 0.8rem; }
 #formStatus:not(:empty) { margin-bottom: 1.25rem; padding: 1rem; border: 1px solid var(--brass-hair); }
