@@ -218,3 +218,8 @@
 .cf-input:focus, .cf-select:focus, .cf-textarea:focus { outline: none; border-color: var(--clay); background: var(--paper); }
 .cf-textarea { resize: vertical; min-height: 110px; }
 .cf-submit { width: 100%; margin-top: 0.5rem; }
+
+/* Preserve the full MLS cover photos and their corner banners. */
+.card-img-wrap:has(.badge-active) img { object-fit: contain; }
+.card:hover .card-img-wrap:has(.badge-active) img { transform: none; }
+.card-img-wrap .badge-active { top: auto; bottom: 8px; left: 50%; transform: translateX(-50%); }
