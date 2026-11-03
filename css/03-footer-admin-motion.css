@@ -44,8 +44,8 @@
 .footer-logos { display: flex; align-items: center; gap: 1.5rem; }
 .footer-logos img { height: 34px; width: auto; opacity: 0.55; transition: opacity 0.25s; }
 .footer-logos img:hover { opacity: 0.9; }
-.footer-legal { display: flex; gap: 1.5rem; font-size: 0.7rem; }
-.footer-legal a { color: rgba(250,246,237,0.45); }
+.footer-legal { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; margin-top: 0.85rem; font-size: 0.75rem; }
+.footer-legal a { color: rgba(250,246,237,0.78); }
 .footer-legal a:hover { color: var(--brass-light); }
 
 /* ── SCROLL REVEAL SYSTEM ── */

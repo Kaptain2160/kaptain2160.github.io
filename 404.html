@@ -45,5 +45,35 @@
     </div>
   </section>
 </main>
+<footer class="footer">
+  <div class="wrap" style="padding-top:2.5rem">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="nav-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9AE6C" stroke-width="1.4"><path d="M3 18l5-8 4 5 3-6 6 9H3z"/></svg></span>
+          <span class="nav-brand-text"><span class="nav-brand-main">Debra Eldin</span><span class="nav-brand-sub">Mountain Home Realty</span></span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:8658067541">(865) 806-7541</a></li>
+          <li><a href="tel:8653664600">Office: (865) 366-4600</a></li>
+          <li><a href="mailto:debraeldinrealtor@gmail.com">debraeldinrealtor@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        <p class="footer-copy">&copy; <span id="yearNow"></span> Debra Eldin, Mountain Home Realty. All rights reserved.</p>
+        <nav class="footer-legal" aria-label="Legal"><a href="/pages/privacy-policy.html">Privacy Policy</a><a href="/pages/fair-housing.html">Fair Housing</a></nav>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  var year = document.getElementById('yearNow');
+  if (year) year.textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
