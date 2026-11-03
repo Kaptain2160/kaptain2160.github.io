@@ -184,7 +184,7 @@
     imgWrap.className = 'card-img-wrap';
     if (l.photo) {
       var img = document.createElement('img');
-      img.src = l.photo; img.alt = l.address; img.loading = 'lazy';
+      img.src = l.photo; img.alt = l.address; img.loading = 'lazy'; img.decoding = 'async';
       imgWrap.appendChild(img);
     } else {
       var ph = document.createElement('div');

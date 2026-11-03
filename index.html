@@ -107,7 +107,7 @@
   <div class="wrap">
     <div class="about-grid">
       <div class="about-portrait-wrap reveal">
-        <img class="about-portrait" src="assets/debra-portrait.jpg" alt="Debra Eldin, Realtor">
+        <img class="about-portrait" src="assets/debra-portrait.jpg" alt="Debra Eldin, Realtor" width="950" height="1600" loading="lazy" decoding="async">
         <div class="about-portrait-frame"></div>
         <div class="about-ribbon"><span class="about-ribbon-n">32</span><span class="about-ribbon-l">years in East TN</span></div>
       </div>
@@ -370,8 +370,8 @@
     <div class="footer-bottom">
       <p class="footer-copy">&copy; <span id="yearNow"></span> Debra Eldin, Mountain Home Realty. All rights reserved.<br><span style="opacity:0.7">Each office independently owned and operated. All information deemed reliable but not guaranteed.</span></p>
       <div class="footer-logos">
-        <img src="assets/mhr-logo-white.png" alt="Mountain Home Realty">
-        <img src="assets/eho-logo.webp" alt="Equal Housing Opportunity" style="filter:invert(1)">
+        <img src="assets/mhr-logo-white.png" alt="Mountain Home Realty" width="1920" height="626" loading="lazy" decoding="async">
+        <img src="assets/eho-logo.webp" alt="Equal Housing Opportunity" width="200" height="200" loading="lazy" decoding="async" style="filter:invert(1)">
       </div>
     </div>
   </div>
@@ -390,7 +390,7 @@
     var el = document.createElement('div');
     el.className = 'cert-card reveal';
     el.style.transitionDelay = ((i % 3) * 0.1) + 's';
-    el.innerHTML = '<div class="cert-card-img"><img src="' + c.img + '" alt="' + c.alt + '" loading="lazy"></div>' +
+    el.innerHTML = '<div class="cert-card-img"><img src="' + c.img + '" alt="' + c.alt + '" loading="lazy" decoding="async"></div>' +
       '<div class="cert-body"><p class="cert-name">' + c.name + '</p><span class="cert-abbr">' + c.abbr + '</span><p class="cert-desc">' + c.desc + '</p></div>';
     certGrid.appendChild(el);
   });
